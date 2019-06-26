@@ -17,6 +17,12 @@
       "form_placeholder": "eg. my-dataset"
     },
     {
+      "field_name": "version",
+      "label": "Version",
+      "validators": "ignore_missing unicode package_version_validator",
+      "form_placeholder": "1.0"
+    },
+    {
       "field_name": "notes",
       "label": "Description",
       "form_snippet": "markdown.html",
@@ -25,60 +31,35 @@
     {
       "field_name": "tag_string",
       "label": "Tags",
-      "preset": "tag_string_autocomplete",
-      "form_placeholder": "eg. economy, mental health, government"
+      "preset": "tag_string_required_autocomplete",
+      "validators": "convert_to_tags(vacabular)",
+      "form_placeholder": "eg. habitat, location, methods, climate parameter/index. ",
+      "choices": [
+        {
+          "value": "tall shrub",
+          "label": "tall shrub"
+        },
+        {
+          "value": "forest",
+          "label": "forest"
+        }
+      ]
     },
     {
-      "field_name": "license_id",
-      "label": "License",
-      "form_snippet": "license.html",
-      "help_text": "License definitions and additional information can be found at http://opendefinition.org/"
-    },
-    {
-      "field_name": "owner_org",
-      "label": "Organization",
-      "preset": "dataset_organization"
-    },
-    {
-      "field_name": "url",
-      "label": "Source",
-      "form_placeholder": "http://example.com/dataset.json",
-      "display_property": "foaf:homepage",
-      "display_snippet": "link.html"
-    },
-    {
-      "field_name": "version",
-      "label": "Version",
-      "validators": "ignore_missing unicode package_version_validator",
-      "form_placeholder": "1.0"
-    },
-    {
-      "field_name": "author",
-      "label": "Author",
-      "form_placeholder": "Joe Bloggs",
-      "display_property": "dc:creator"
-    },
-    {
-      "field_name": "author_email",
-      "label": "Author Email",
-      "form_placeholder": "joe@example.com",
-      "display_property": "dc:creator",
-      "display_snippet": "email.html",
-      "display_email_name_field": "author"
-    },
-    {
-      "field_name": "maintainer",
-      "label": "Maintainer",
-      "form_placeholder": "Joe Bloggs",
-      "display_property": "dc:contributor"
-    },
-    {
-      "field_name": "maintainer_email",
-      "label": "Maintainer Email",
-      "form_placeholder": "joe@example.com",
-      "display_property": "dc:contributor",
-      "display_snippet": "email.html",
-      "display_email_name_field": "maintainer"
+      "field_name": "topic_category",
+      "label": "Topic Category Code",
+      "preset": "select",
+      "form_placeholder": "INSPIRE/ISO Topic Categories ",
+      "choices": [
+        {
+          "value": "Biota",
+          "label": "Biota"
+        },
+        {
+          "value": "Boundaries",
+          "label": "Boundaries"
+        }
+      ]
     },
     {
       "field_name": "embargo",
@@ -98,6 +79,162 @@
           "label": "Hidden"
         }
       ]
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "Creative Commons Attribution",
+          "label": "CC-BY [version 4.0]"
+        },
+        {
+          "value": "Norwegian Licence for Open Government Data",
+          "label": "NLOD"
+        }
+      ]
+    },
+    {
+      "field_name": "author",
+      "label": "Contact Person",
+      "form_placeholder": "data collector/creator or maintainer",
+      "display_property": "dc:creator"
+    },
+    {
+      "field_name": "author_email",
+      "label": "Email Address",
+      "form_placeholder": "joe@example.com",
+      "display_property": "dc:creator",
+      "display_snippet": "email.html",
+      "display_email_name_field": "author"
+    },
+    {
+      "field_name": "position",
+      "label": "Title of Position",
+      "form_placeholder": "eg. Researcher, project manager, technician..."
+    },
+    {
+      "field_name": "associated_parties",
+      "label": "Associated Parties",
+      "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... "
+    },
+    {
+      "field_name": "persons",
+      "label": "Persons",
+      "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students... "
+    },
+    {
+      "field_name": "temporal_start",
+      "label": "Temporal Extent - start date",
+      "preset": "date"
+    },
+    {
+      "field_name": "temporal_end",
+      "label": "Temporal Extent - end date",
+      "preset": "date"
+    },
+    {
+      "field_name": "location_region",
+      "label": "Geographic Location - Region",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "Svalbard",
+          "label": "Svalbard"
+        },
+        {
+          "value": "Varanger",
+          "label": "Varanger"
+        }
+      ]
+    },
+    {
+      "field_name": "location_sub_region",
+      "label": "Geographic Location - Sub-region",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "Kongsfjorden",
+          "label": "Kongsfjorden"
+        },
+        {
+          "value": "Nordenskiodland",
+          "label": "Nordenskiodland"
+        },
+        {
+          "value": "Rakkonjarga",
+          "label": "Rakkonjarga"
+        },
+        {
+          "value": "Varjjatnjarga",
+          "label": "Varjjatnjarga"
+        }
+      ]
+    },
+    {
+      "field_name": "location_locality",
+      "label": "Geographic Location - Locality",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "Komagdalen",
+          "label": "Komagdalen"
+        },
+        {
+          "value": "Bergebydalen",
+          "label": "Bergebydalen"
+        }
+      ]
+    },
+    {
+      "field_name": "location_section",
+      "label": "Geographic Location - Section",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "Torvhaugdalen",
+          "label": "Torvhaugdalen"
+        },
+        {
+          "value": "Bearalveaijohka",
+          "label": "Bearalveaijohka"
+        }
+      ]
+    },
+     {
+      "field_name": "scientific_name",
+      "label": "scientific Name",
+      "form_placeholder": "Scientific name - Taxonomy "
+    },
+    {
+      "field_name": "resource_citations",
+      "label": "Resource Citation",
+      "form_placeholder": "citation for the resource"
+    },
+    {
+      "field_name": "scripts",
+      "label": "Associated Scripts",
+      "form_placeholder": "http://example.com/repository.git",
+      "display_snippet": "link.html"
+    },
+    {
+      "field_name": "protocol",
+      "label": "Study Protocol link",
+      "form_placeholder": "http://example.com/protocol.json",
+      "display_snippet": "link.html"
+    },
+    {
+      "field_name": "bibliography",
+      "label": "Bibliographic citation",
+      "form_placeholder": "http://example.com/publication.pdf",
+      "display_snippet": "link.html"
+    },
+    {
+      "field_name": "funding",
+      "label": "Funding Source",
+      "form_placeholder": "funding source for the dataset "
     }
   ],
   "resource_fields": [
