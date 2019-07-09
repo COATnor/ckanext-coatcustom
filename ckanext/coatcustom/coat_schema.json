@@ -12,6 +12,7 @@
     },
     {
       "field_name": "name",
+      "required": true,
       "label": "URL",
       "preset": "dataset_slug",
       "form_placeholder": "eg. my-dataset"
@@ -20,7 +21,13 @@
       "field_name": "version",
       "label": "Version",
       "validators": "ignore_missing unicode package_version_validator",
-      "form_placeholder": "1.0"
+      "form_placeholder": "1"
+    },
+    {
+      "field_name": "owner_org",
+      "required": true,
+      "label": "Organization",
+      "preset": "dataset_organization"
     },
     {
       "field_name": "notes",
@@ -29,21 +36,11 @@
       "form_placeholder": "eg. Some useful notes about the data"
     },
     {
-      "field_name": "tag_string",
-      "label": "Tags",
-      "preset": "tag_string_required_autocomplete",
-      "validators": "convert_to_tags(vacabular)",
-      "form_placeholder": "eg. habitat, location, methods, climate parameter/index. ",
-      "choices": [
-        {
-          "value": "tall shrub",
-          "label": "tall shrub"
-        },
-        {
-          "value": "forest",
-          "label": "forest"
-        }
-      ]
+      "field_name": "vocabulary",
+      "label": "vocabulary",
+      "preset": "tag_string_autocomplete",
+      "validators": "convert_to_tags(coat_tag_vocabulary)",
+      "form_placeholder": "Themes placeholder in English"
     },
     {
       "field_name": "topic_category",
@@ -87,12 +84,12 @@
       "preset": "select",
       "choices": [
         {
-          "value": "Creative Commons Attribution",
-          "label": "CC-BY [version 4.0]"
+          "value": "CC-BY_4.0",
+          "label": "Creative Commons Attribution (CC-BY 4.0)"
         },
         {
-          "value": "Norwegian Licence for Open Government Data",
-          "label": "NLOD"
+          "value": "NLOD",
+          "label": "Norwegian Licence for Open Government Data (NLOD)"
         }
       ]
     },
