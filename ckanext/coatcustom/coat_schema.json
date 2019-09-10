@@ -21,7 +21,7 @@
       "field_name": "version",
       "label": "Version",
       "validators": "ignore_missing unicode package_version_validator",
-      "form_placeholder": "1"
+      "form_snippet": null
     },
     {
       "field_name": "owner_org",
@@ -34,13 +34,6 @@
       "label": "Description",
       "form_snippet": "markdown.html",
       "form_placeholder": "eg. Some useful notes about the data"
-    },
-    {
-      "field_name": "vocabulary",
-      "label": "vocabulary",
-      "preset": "tag_string_autocomplete",
-      "validators": "convert_to_tags(coat_tag_vocabulary)",
-      "form_placeholder": "Themes placeholder in English"
     },
     {
       "field_name": "topic_category",
@@ -133,8 +126,8 @@
       "preset": "date"
     },
     {
-      "field_name": "location_region",
-      "label": "Geographic Location - Region",
+      "field_name": "location",
+      "label": "Geographic Location",
       "preset": "select",
       "choices": [
         {
@@ -144,21 +137,14 @@
         {
           "value": "Varanger",
           "label": "Varanger"
-        }
-      ]
-    },
-    {
-      "field_name": "location_sub_region",
-      "label": "Geographic Location - Sub-region",
-      "preset": "select",
-      "choices": [
+        },
         {
           "value": "Kongsfjorden",
           "label": "Kongsfjorden"
         },
         {
-          "value": "Nordenskiodland",
-          "label": "Nordenskiodland"
+          "value": "Nordenkioldland",
+          "label": "Nordenkioldland"
         },
         {
           "value": "Rakkonjarga",
@@ -167,14 +153,7 @@
         {
           "value": "Varjjatnjarga",
           "label": "Varjjatnjarga"
-        }
-      ]
-    },
-    {
-      "field_name": "location_locality",
-      "label": "Geographic Location - Locality",
-      "preset": "select",
-      "choices": [
+        },
         {
           "value": "Komagdalen",
           "label": "Komagdalen"
@@ -182,21 +161,234 @@
         {
           "value": "Bergebydalen",
           "label": "Bergebydalen"
-        }
-      ]
-    },
-    {
-      "field_name": "location_section",
-      "label": "Geographic Location - Section",
-      "preset": "select",
-      "choices": [
+        },
+        {
+          "value": "Adventdalen",
+          "label": "Adventdalen"
+        },
+        {
+          "value": "Sassendalen",
+          "label": "Sassendalen"
+        },
+        {
+          "value": "Ifjordfjellet",
+          "label": "Ifjordfjellet"
+        },
+        {
+          "value": "Polmak",
+          "label": "Polmak"
+        },
+        {
+          "value": "Luftjok",
+          "label": "Luftjok"
+        },
+        {
+          "value": "Tana",
+          "label": "Tana"
+        },
+        {
+          "value": "Austertana",
+          "label": "Austertana"
+        },
+        {
+          "value": "Broggerhalvoya",
+          "label": "Broggerhalvoya"
+        },
+        {
+          "value": "Sarsoyra",
+          "label": "Sarsoyra"
+        },
+        {
+          "value": "Kaffioyra",
+          "label": "Kaffioyra"
+        },
+        {
+          "value": "Reindalen",
+          "label": "Reindalen"
+        },
+        {
+          "value": "Colesdalen",
+          "label": "Colesdalen"
+        },
+        {
+          "value": "Bekkarfjord",
+          "label": "Bekkarfjord"
+        },
+        {
+          "value": "Nordkynn",
+          "label": "Nordkynn"
+        },
+        {
+          "value": "Stjernevann",
+          "label": "Stjernevann"
+        },
+        {
+          "value": "Skjaernes",
+          "label": "Skjaernes"
+        },
+        {
+          "value": "Boftsa",
+          "label": "Boftsa"
+        },
+        {
+          "value": "Hanaskogdalen",
+          "label": "Hanaskogdalen"
+        },
+        {
+          "value": "Semmeldalen",
+          "label": "Semmeldalen"
+        },
+        {
+          "value": "Alkhornet",
+          "label": "Alkhornet"
+        },
+        {
+          "value": "Ossiansarsfjellet",
+          "label": "Ossiansarsfjellet"
+        },
+        {
+          "value": "Blomstrandoya",
+          "label": "Blomstrandoya"
+        },
+        {
+          "value": "Vestre_Jakobselv",
+          "label": "Vestre_Jakobselv"
+        },
         {
           "value": "Torvhaugdalen",
           "label": "Torvhaugdalen"
         },
         {
-          "value": "Bearalveaijohka",
-          "label": "Bearalveaijohka"
+          "value": "Baeralveaijohka",
+          "label": "Baeralveaijohka"
+        },
+        {
+          "value": "Jakobselv",
+          "label": "Reinhaugen"
+        },
+        {
+          "value": "Skoarrajohka",
+          "label": "Skoarrajohka"
+        },
+        {
+          "value": "Gaasevannan",
+          "label": "Gaasevannan"
+        },
+        {
+          "value": "Komagdalen_ovre",
+          "label": "Komagdalen_ovre"
+        },
+        {
+          "value": "Komagdalen_midtre",
+          "label": "Komagdalen_midtre"
+        },
+        {
+          "value": "Komagdalen_nedre",
+          "label": "Komagdalen_nedre"
+        },
+        {
+          "value": "Sanfjorddalen",
+          "label": "Sanfjorddalen"
+        },
+        {
+          "value": "Kjoltindan",
+          "label": "Kjoltindan"
+        },
+        {
+          "value": "Gargas",
+          "label": "Gargas"
+        },
+        {
+          "value": "Ryggfjellet",
+          "label": "Ryggfjellet"
+        },
+        {
+          "value": "Hubejohka",
+          "label": "Hubejohka"
+        },
+        {
+          "value": "Roussachokka",
+          "label": "Roussachokka"
+        },
+        {
+          "value": "Eastordalen",
+          "label": "Eastordalen"
+        },
+        {
+          "value": "Storelva",
+          "label": "Storelva"
+        },
+        {
+          "value": "Iesjohka",
+          "label": "Iesjohka"
+        },
+        {
+          "value": "Giksjohka",
+          "label": "Giksjohka"
+        },
+        {
+          "value": "Gurrojohka",
+          "label": "Gurrojohka"
+        },
+        {
+          "value": "Suoljavri",
+          "label": "Suoljavri"
+        },
+        {
+          "value": "Polmak_finland",
+          "label": "Polmak_finland"
+        },
+        {
+          "value": "Polmak_norway",
+          "label": "Polmak_norway"
+        },
+        {
+          "value": "Endalen",
+          "label": "Endalen"
+        },
+        {
+          "value": "Janssonhaugen",
+          "label": "Janssonhaugen"
+        },
+        {
+          "value": "Simlestupet",
+          "label": "Simlestupet"
+        },
+        {
+          "value": "Bjorndalen",
+          "label": "Bjorndalen"
+        },
+        {
+          "value": "Gjelhallet",
+          "label": "Gjelhallet"
+        },
+        {
+          "value": "Alkhornet",
+          "label": "Alkhornet"
+        },
+        {
+          "value": "Leinstranda",
+          "label": "Leinstranda"
+        },
+        {
+          "value": "Hanaskogdalen",
+          "label": "Hanaskogdalen"
+        },
+        {
+          "value": "Malardalen",
+          "label": "Malardalen"
+        },
+        {
+          "value": "Todalen",
+          "label": "Todalen"
+        },
+        {
+          "value": "Bolterdalen",
+          "label": "Bolterdalen"
+        },
+        {
+          "value": "Eskerdalen",
+          "label": "Eskerdalen"
         }
       ]
     },
