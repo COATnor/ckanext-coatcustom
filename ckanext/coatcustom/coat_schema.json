@@ -31,12 +31,16 @@
     },
     {
       "field_name": "notes",
+      "required": true,
       "label": "Description",
+      "validators": "ignore_missing",
       "form_snippet": "markdown.html",
       "form_placeholder": "eg. Some useful notes about the data"
     },
     {
       "field_name": "topic_category",
+      "required": true,
+      "validators": "ignore_missing",
       "label": "Topic Category Code",
       "preset": "select",
       "form_placeholder": "INSPIRE/ISO Topic Categories ",
@@ -121,7 +125,9 @@
     },
     {
       "field_name": "embargo",
+      "required": true,
       "label": "Embargo",
+      "validators": "ignore_missing",
       "preset": "select",
       "choices": [
         {
@@ -140,7 +146,9 @@
     },
     {
       "field_name": "license_id",
+      "required": true,
       "label": "License",
+      "validators": "ignore_missing",
       "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
       "preset": "select",
       "choices": [
@@ -156,12 +164,24 @@
     },
     {
       "field_name": "contact",
+      "required": true,
+      "validators": "ignore_missing",
       "label": "Contact Person",
       "form_placeholder": "data collector/creator or maintainer",
       "display_property": "dc:creator"
     },
     {
+      "field_name": "publisher",
+      "required": true,
+      "validators": "ignore_missing",
+      "label": "Organization Name",
+      "form_placeholder": "Name of the contact person's organization",
+      "display_property": "dc:publisher"
+    },
+    {
       "field_name": "author_email",
+      "required": true,
+      "validators": "ignore_missing",
       "label": "Email Address",
       "form_placeholder": "joe@example.com",
       "display_property": "dc:creator",
@@ -181,7 +201,7 @@
     {
       "field_name": "persons",
       "label": "Persons",
-      "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students... "
+      "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students...) "
     },
     {
       "field_name": "temporal_start",
@@ -197,6 +217,7 @@
       "field_name": "location",
       "label": "Geographic Location",
       "preset": "select",
+      "help_text": "Data collection location (at different scales. Choose the most detailed possible)",
       "choices": [
         {
           "value": "Svalbard",
