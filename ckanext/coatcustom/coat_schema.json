@@ -22,6 +22,11 @@
       "label": "Version",
       "validators": "ignore_missing unicode package_version_validator",
       "form_snippet": null
+    },{
+      "field_name": "base_name",
+      "label": "base_name",
+      "validators": "ignore_missing",
+      "form_snippet": null
     },
     {
       "field_name": "owner_org",
