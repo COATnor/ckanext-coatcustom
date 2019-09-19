@@ -168,7 +168,7 @@
       ]
     },
     {
-      "field_name": "contact",
+      "field_name": "author",
       "required": true,
       "validators": "ignore_missing",
       "label": "Contact Person",
