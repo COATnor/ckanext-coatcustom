@@ -22,16 +22,11 @@
       "label": "Version",
       "validators": "ignore_missing unicode package_version_validator",
       "form_snippet": null
-    },{
-      "field_name": "base_name",
-      "label": "base_name",
-      "validators": "ignore_missing",
-      "form_snippet": null
     },
     {
       "field_name": "owner_org",
       "required": true,
-      "label": "Organization",
+      "label": "Namespace",
       "preset": "dataset_organization"
     },
     {
@@ -229,260 +224,280 @@
           "label": "Svalbard"
         },
         {
+          "value": "Kongsfjorden",
+          "label": "Svalbard - Kongsfjorden"
+        },
+        {
+          "value": "Blomstrandoya",
+          "label": "Svalbard - Kongsfjorden - Blomstrandoya"
+        },
+        {
+          "value": "Broggerhalvoya",
+          "label": "Svalbard - Kongsfjorden - Broggerhalvoya"
+        },
+        {
+          "value": "Simlestupet",
+          "label": "Svalbard - Kongsfjorden - Broggerhalvoya - Simlestupet"
+        },
+        {
+          "value": "Leinstranda",
+          "label": "Svalbard - Kongsfjorden - Broggerhalvoya - Leinstranda"
+        },
+        {
+          "value": "Kaffioyra",
+          "label": "Svalbard - Kongsfjorden - Kaffioyra"
+        },
+        {
+          "value": "Ossiansarsfjellet",
+          "label": "Svalbard - Kongsfjorden - Ossiansarsfjellet"
+        },
+        {
+          "value": "Sarsoyra",
+          "label": "Svalbard - Kongsfjorden - Sarsoyra"
+        },
+        {
+          "value": "Nordenkioldland",
+          "label": "Svalbard - Nordenkioldland"
+        },
+        {
+          "value": "Adventdalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen"
+        },
+        {
+          "value": "Endalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Endalen"
+        },
+        {
+          "value": "Janssonhaugen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Janssonhaugen"
+        },
+        {
+          "value": "Bjorndalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Bjorndalen"
+        },
+        {
+          "value": "Hanaskogdalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Hanaskogdalen"
+        },
+        {
+          "value": "Malardalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Malardalen"
+        },
+        {
+          "value": "Todalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Todalen"
+        },
+        {
+          "value": "Bolterdalen",
+          "label": "Svalbard - Nordenskioldland - Adventdalen - Bolterdalen"
+        },
+        {
+          "value": "Alkhornet",
+          "label": "Svalbard - Nordenskioldland - Alkhornet"
+        },
+        {
+          "value": "Colesdalen",
+          "label": "Svalbard - Nordenskioldland - Colesdalen"
+        },
+        {
+          "value": "Reindalen",
+          "label": "Svalbard - Nordenskioldland - Reindalen"
+        },
+        {
+          "value": "Sassendalen",
+          "label": "Svalbard - Nordenskioldland - Sassendalen"
+        },
+        {
+          "value": "Gjelhallet",
+          "label": "Svalbard - Nordenskioldland - Sassendalen - Gjelhallet"
+        },
+        {
+          "value": "Eskerdalen",
+          "label": "Svalbard - Nordenskioldland - Sassendalen - Eskerdalen"
+        },
+        {
+          "value": "Semmeldalen",
+          "label": "Svalbard - Nordenskioldland - Semmeldalen"
+        },
+        {
           "value": "Varanger",
           "label": "Varanger"
         },
         {
-          "value": "Kongsfjorden",
-          "label": "Kongsfjorden"
-        },
-        {
-          "value": "Nordenkioldland",
-          "label": "Nordenkioldland"
-        },
-        {
-          "value": "Rakkonjarga",
-          "label": "Rakkonjarga"
-        },
-        {
-          "value": "Varjjatnjarga",
-          "label": "Varjjatnjarga"
-        },
-        {
-          "value": "Komagdalen",
-          "label": "Komagdalen"
-        },
-        {
-          "value": "Bergebydalen",
-          "label": "Bergebydalen"
-        },
-        {
-          "value": "Adventdalen",
-          "label": "Adventdalen"
-        },
-        {
-          "value": "Sassendalen",
-          "label": "Sassendalen"
-        },
-        {
-          "value": "Ifjordfjellet",
-          "label": "Ifjordfjellet"
-        },
-        {
-          "value": "Polmak",
-          "label": "Polmak"
-        },
-        {
-          "value": "Luftjok",
-          "label": "Luftjok"
-        },
-        {
-          "value": "Tana",
-          "label": "Tana"
-        },
-        {
-          "value": "Austertana",
-          "label": "Austertana"
-        },
-        {
-          "value": "Broggerhalvoya",
-          "label": "Broggerhalvoya"
-        },
-        {
-          "value": "Sarsoyra",
-          "label": "Sarsoyra"
-        },
-        {
-          "value": "Kaffioyra",
-          "label": "Kaffioyra"
-        },
-        {
-          "value": "Reindalen",
-          "label": "Reindalen"
-        },
-        {
-          "value": "Colesdalen",
-          "label": "Colesdalen"
+          "value": "Siskkit_corgas_ja_lagesduottar",
+          "label":  "Varanger - Siskkit_corgas_ja_lagesduottar"
         },
         {
           "value": "Bekkarfjord",
-          "label": "Bekkarfjord"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Bekkarfjord"
         },
         {
-          "value": "Nordkynn",
-          "label": "Nordkynn"
-        },
-        {
-          "value": "Stjernevann",
-          "label": "Stjernevann"
-        },
-        {
-          "value": "Skjaernes",
-          "label": "Skjaernes"
-        },
-        {
-          "value": "Boftsa",
-          "label": "Boftsa"
-        },
-        {
-          "value": "Hanaskogdalen",
-          "label": "Hanaskogdalen"
-        },
-        {
-          "value": "Semmeldalen",
-          "label": "Semmeldalen"
-        },
-        {
-          "value": "Alkhornet",
-          "label": "Alkhornet"
-        },
-        {
-          "value": "Ossiansarsfjellet",
-          "label": "Ossiansarsfjellet"
-        },
-        {
-          "value": "Blomstrandoya",
-          "label": "Blomstrandoya"
-        },
-        {
-          "value": "Vestre_Jakobselv",
-          "label": "Vestre_Jakobselv"
-        },
-        {
-          "value": "Torvhaugdalen",
-          "label": "Torvhaugdalen"
-        },
-        {
-          "value": "Baeralveaijohka",
-          "label": "Baeralveaijohka"
-        },
-        {
-          "value": "Jakobselv",
-          "label": "Reinhaugen"
-        },
-        {
-          "value": "Skoarrajohka",
-          "label": "Skoarrajohka"
-        },
-        {
-          "value": "Gaasevannan",
-          "label": "Gaasevannan"
-        },
-        {
-          "value": "Komagdalen_ovre",
-          "label": "Komagdalen_ovre"
-        },
-        {
-          "value": "Komagdalen_midtre",
-          "label": "Komagdalen_midtre"
-        },
-        {
-          "value": "Komagdalen_nedre",
-          "label": "Komagdalen_nedre"
-        },
-        {
-          "value": "Sanfjorddalen",
-          "label": "Sanfjorddalen"
-        },
-        {
-          "value": "Kjoltindan",
-          "label": "Kjoltindan"
-        },
-        {
-          "value": "Gargas",
-          "label": "Gargas"
-        },
-        {
-          "value": "Ryggfjellet",
-          "label": "Ryggfjellet"
-        },
-        {
-          "value": "Hubejohka",
-          "label": "Hubejohka"
-        },
-        {
-          "value": "Roussachokka",
-          "label": "Roussachokka"
+          "value": "Ifjordfjellet",
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet"
         },
         {
           "value": "Eastordalen",
-          "label": "Eastordalen"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet - Eastordalen"
         },
         {
           "value": "Storelva",
-          "label": "Storelva"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet - Storelva"
         },
         {
           "value": "Iesjohka",
-          "label": "Iesjohka"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet - Iesjohka"
         },
         {
           "value": "Giksjohka",
-          "label": "Giksjohka"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet - Giksjohka"
         },
         {
           "value": "Gurrojohka",
-          "label": "Gurrojohka"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet - Gurrojohka"
         },
         {
           "value": "Suoljavri",
-          "label": "Suoljavri"
+          "label": "Varanger - Siskkit_corgas_ja_lagesduottar - Ifjordfjellet - Suoljavri"
+        },
+        {
+          "value": "Olggut_corgas_oarje_deatnu",
+          "label":  "Varanger - Olggut_corgas_oarje_deatnu"
+        },
+        {
+          "value": "Nordkynn",
+          "label": "Varanger - Olggut_corgas_oarje_deatnu - Nordkynn"
+        },
+        {
+          "value": "Tana",
+          "label": "Varanger - Olggut_corgas_oarje_deatnu -Tana"
+        },
+        {
+          "value": "Skjaernes",
+          "label": "Varanger - Olggut_corgas_oarje_deatnu -Skjaernes"
+        },
+        {
+          "value": "Boftsa",
+          "label": "Varanger - Olggut_corgas_oarje_deatnu -Boftsa"
+        },
+        {
+          "value": "Bahcaveaijji",
+          "label":  "Varanger - Bahcaveaijji"
+        },
+        {
+          "value": "Bugoyfjord",
+          "label":  "Varanger - Bahcaveaijji - Bugoyfjord"
+        },
+        {
+          "value": "Kirkenes",
+          "label":  "Varanger - Bahcaveaijji - Kirkenes"
+        },
+        {
+          "value": "Rakkonjarga",
+          "label": "Varanger - Rakkonjarga"
+        },
+        {
+          "value": "Austertana",
+          "label": "Varanger - Rakkonjarga - Austertana"
+        },
+        {
+          "value": "Luftjok",
+          "label": "Varanger - Rakkonjarga - Luftjok"
+        },
+        {
+          "value": "Polmak",
+          "label": "Varanger - Rakkonjarga - Polmak"
         },
         {
           "value": "Polmak_finland",
-          "label": "Polmak_finland"
+          "label": "Varanger - Rakkonjarga - Polmak - Polmak_finland"
         },
         {
           "value": "Polmak_norway",
-          "label": "Polmak_norway"
+          "label": "Varanger - Rakkonjarga - Polmak - Polmak_norway"
         },
         {
-          "value": "Endalen",
-          "label": "Endalen"
+          "value": "Stjernevann",
+          "label": "Varanger - Rakkonjarga - Stjernevann"
         },
         {
-          "value": "Janssonhaugen",
-          "label": "Janssonhaugen"
+          "value": "Varjjatnjarga",
+          "label": "Varanger - Varjjatnjarga"
         },
         {
-          "value": "Simlestupet",
-          "label": "Simlestupet"
+          "value": "Bergebydalen",
+          "label": "Varanger - Varjjatnjarga - Bergebydalen"
         },
         {
-          "value": "Bjorndalen",
-          "label": "Bjorndalen"
+          "value": "Komagdalen",
+          "label": "Varanger - Varjjatnjarga - Komagdalen"
         },
         {
-          "value": "Gjelhallet",
-          "label": "Gjelhallet"
+          "value": "Komagdalen_ovre",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Komagdalen_ovre"
         },
         {
-          "value": "Alkhornet",
-          "label": "Alkhornet"
+          "value": "Komagdalen_midtre",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Komagdalen_midtre"
         },
         {
-          "value": "Leinstranda",
-          "label": "Leinstranda"
+          "value": "Komagdalen_nedre",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Komagdalen_nedre"
         },
         {
-          "value": "Hanaskogdalen",
-          "label": "Hanaskogdalen"
+          "value": "Sanfjorddalen",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Sanfjorddalen"
         },
         {
-          "value": "Malardalen",
-          "label": "Malardalen"
+          "value": "Kjoltindan",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Kjoltindan"
         },
         {
-          "value": "Todalen",
-          "label": "Todalen"
+          "value": "Gargas",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Gargas"
         },
         {
-          "value": "Bolterdalen",
-          "label": "Bolterdalen"
+          "value": "Ryggfjellet",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Ryggfjellet"
         },
         {
-          "value": "Eskerdalen",
-          "label": "Eskerdalen"
+          "value": "Hubejohka",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Hubejohka"
+        },
+        {
+          "value": "Roussachokka",
+          "label": "Varanger - Varjjatnjarga - Komagdalen - Roussachokka"
+        },
+        {
+          "value": "Vestre_Jakobselv",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv"
+        },
+        {
+          "value": "Torvhaugdalen",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Torvhaugdalen"
+        },
+        {
+          "value": "Baeralveaijohka",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Baeralveaijohka"
+        },
+        {
+          "value": "Jakobselv",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Jakobselv"
+        },
+        {
+          "value": "Reinhaugen",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Reinhaugen"
+        },
+        {
+          "value": "Skoarrajohka",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Skoarrajohka"
+        },
+        {
+          "value": "Tranemyra",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Tranemyra"
+        },
+        {
+          "value": "Gaasevannan",
+          "label": "Varanger - Varjjatnjarga - Vestre_Jakobselv - Gaasevannan"
         }
       ]
     },
