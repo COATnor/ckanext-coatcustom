@@ -38,6 +38,14 @@
       "form_placeholder": "eg. Some useful notes about the data"
     },
     {
+      "field_name": "tag_string",
+      "required": true,
+      "label": "tags (keywords)",
+      "preset": "tag_string_autocomplete",
+      "validators": "convert_to_tags(coat_vocabulary)",
+      "form_placeholder": "choose one or more keywords from the COAT list"
+    },
+    {
       "field_name": "topic_category",
       "required": true,
       "validators": "ignore_missing",
@@ -54,8 +62,8 @@
           "label": "Boundaries"
         },
         {
-          "value": "CLimatology",
-          "label": "CLimatology /Meteorology /Atmosphere"
+          "value": "Climatology",
+          "label": "Climatology /Meteorology /Atmosphere"
         },
         {
           "value": "Economy",
