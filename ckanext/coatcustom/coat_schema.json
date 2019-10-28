@@ -134,29 +134,9 @@
     {
       "field_name": "embargo",
       "required": true,
-      "label": "Embargo",
-      "validators": "ignore_missing",
-      "preset": "select",
-      "choices": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "2-years",
-          "label": "2-years"
-        },
-        {
-          "value": "hidden",
-          "label": "Hidden"
-        }
-      ]
-    },
-    {
-      "field_name": "embargo_date",
       "label": "Embargo end date",
-      "preset": "date",
-      "form_snippet": null
+      "validators": "ignore_missing",
+      "preset": "embargo"
     },
     {
       "field_name": "license_id",
