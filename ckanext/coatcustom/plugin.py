@@ -7,7 +7,7 @@ import ckanext.coatcustom.logic.action.create
 class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
-    #plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IActions)
 
     # IConfigurer
 
@@ -16,7 +16,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'coatcustom')
 
-    '''
+
     def get_actions(self):
         return {
                    'coat_package_create':
@@ -25,8 +25,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
                        ckanext.coatcustom.logic.action.create.package_create
         }
 
-      
-
+    '''
                # IPackageController
     @toolkit.side_effect_free
     @toolkit.chained_action
