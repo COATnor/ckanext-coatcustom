@@ -10,10 +10,7 @@ def package_create(coat_package_create, context, data_dict):
     if data_dict.get('__parent', False):
         return coat_package_create(context, data_dict)
 
-    if 'extras' not in data_dict:
-        data_dict['extras'] = []
-
-    return coat_package_create(context, data_dict)
+    data_dict.setdefault('extras', [])
 
     json_string = '''
                 {
@@ -21,17 +18,13 @@ def package_create(coat_package_create, context, data_dict):
                      "coordinates": [-3.145,53.078]
                 }
                 '''
-    value =  json.loads(json_string)
-    """
+    value =  json_string
     for extra in data_dict['extras']:
         if extra['key'] == 'spatial':
             extra['value'] = value
             break
     else:
         data_dict['extras'].append({'key': 'spatial', 'value': value})
-    """
-    #data_dict['spatial'] = value
+    data_dict['spatial'] = value
 
-    #import pdb; pdb.set_trace()
-
-    coat_package_create(context, data_dict)
+    return coat_package_create(context, data_dict)
