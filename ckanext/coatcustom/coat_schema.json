@@ -43,7 +43,8 @@
       "label": "tags (keywords)",
       "preset": "tag_string_autocomplete",
       "validators": "convert_to_tags(coat_vocabulary)",
-      "form_placeholder": "choose one or more keywords from the COAT list"
+      "form_placeholder": "choose one or more keywords from the COAT list",
+      "help_text": "tall shrub, forest, birch forest, tundra, meadow, heath, dwarf shrub heath, snow beds, moss tundra, grassy tundra, hummock tundra, point intercept, camera traps, snow tracking, surveys, experimental exclosures, remote sensing, satellite imagery, aerial imagery, repeat photography, flight intercept traps, snap trapping, pellet counts, GPS tags, satellite tags, stable isotopes, dendroecology, hunting records, metabarcoding, barcoding, microsatellites, scat analysis, NDVI, albedo, modelling, snow modelling, population modelling, temperature logger, weather station, snow pits, NIRS, distance sampling, live trapping, artificial nests, snow depth, snow structure, temperature, air temperature, ground temperature, soil temperature, precipitation, wind, ground ice, icing, humidity, ice thickness, timing of snow melt, timing of icing, snow melt, rain on snow, radiation"
     },
     {
       "field_name": "topic_category",
