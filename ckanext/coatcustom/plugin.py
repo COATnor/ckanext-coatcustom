@@ -8,7 +8,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IActions)
-    plugins.implements(plugins.IFacets)
+    plugins.implements(plugins.IFacets, inherit=True)
 
     # IConfigurer
 
@@ -26,8 +26,10 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         possible TAG values) using the API.
 
         '''
-        user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
-        context = {'user': user['name']}
+        return  # broken
+        ##logic.schema.default_create_vocabulary_schema()
+        ##model.repo.commit()
+        context = {'ignore_auth': True}
         try:
             data = {'id': 'coat_vocabulary'}
             toolkit.get_action('vocabulary_show')(context, data)
