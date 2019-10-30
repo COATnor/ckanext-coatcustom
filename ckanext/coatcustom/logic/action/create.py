@@ -30,7 +30,7 @@ def package_create(coat_package_create, context, data_dict):
         if field['field_name'] != 'location':
             continue
         for choice in field['choices']:
-            if choice['value'] not in data_dict['location']:
+            if choice['value'] not in data_dict.get('location', []):
                 continue
             lon = choice['lon']
             lat = choice['lat']
