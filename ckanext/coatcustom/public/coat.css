@@ -10,7 +10,16 @@
 }
 
 .homepage .module-search .module-content {
-  background: #01667c;
+  background: #bcb5b5;
+}
+
+.welcome {
+  color: white;
+  text-align: center;
+}
+
+.welcome h1 {
+  font-size: 40px;
 }
 
 .module-content {
