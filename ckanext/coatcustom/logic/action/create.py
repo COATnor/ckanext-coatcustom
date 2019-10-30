@@ -1,7 +1,8 @@
 import ckan.plugins.toolkit as toolkit
 import ckan.logic as logic
-from ckanext.coat.logic.action.create import package_create as coat_package_create
+#from ckanext.coat.logic.action.create import package_create as coat_package_create
 from ckanext.scheming.helpers import scheming_get_dataset_schema
+import ckanext.coatcustom.helpers as helpers
 import json
 
 _get_or_bust = logic.get_or_bust
@@ -29,7 +30,7 @@ def package_create(coat_package_create, context, data_dict):
     for field in s['dataset_fields']:
         if field['field_name'] != 'location':
             continue
-        for choice in field['choices']:
+        for choice in helpers.scheming_locations_choices(None):
             if choice['value'] not in data_dict.get('location', []):
                 continue
             lon = choice['lon']
