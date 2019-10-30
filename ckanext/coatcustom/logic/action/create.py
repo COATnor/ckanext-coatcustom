@@ -9,7 +9,6 @@ _get_or_bust = logic.get_or_bust
 #@toolkit.side_effect_free
 @toolkit.chained_action
 def package_create(coat_package_create, context, data_dict):
-    import pdb; pdb.set_trace()
     if data_dict.get('__parent', False):
         return coat_package_create(context, data_dict)
 
