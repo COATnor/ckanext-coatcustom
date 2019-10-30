@@ -32,7 +32,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     def _facets(self, facets_dict):
         if 'groups' in facets_dict:
             del facets_dict['groups']
-        facets_dict['location'] = toolkit._('locations')
+        facets_dict['extras_location'] = toolkit._('Locations')
         facets_dict['organization'] = toolkit._('Modules')
         facets_dict['topic_category'] = toolkit._('Topic Category')
         return facets_dict
