@@ -2,6 +2,7 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import ckanext.coat.logic.action.create
 import ckanext.coatcustom.logic.action.create
+import ckanext.coatcustom.helpers as helpers
 
 
 class CoatcustomPlugin(plugins.SingletonPlugin):
@@ -9,6 +10,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IFacets, inherit=True)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
 
@@ -37,3 +39,8 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
 
     def dataset_facets(self, facets_dict, package_type):
         return self._facets(facets_dict)
+
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return { name:getattr(helpers, name) for name in dir(helpers) }
