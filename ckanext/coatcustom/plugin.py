@@ -8,6 +8,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.IFacets)
 
     # IConfigurer
 
@@ -17,7 +18,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         toolkit.add_resource('fanstatic', 'coatcustom')
         self._create_coat_vocabulary()
 
-    def _create_coat_vocabulary():
+    def _create_coat_vocabulary(self):
         '''Create the COAT vocabulary, and populate with custom tags, if they don't exist already.
 
         Note that you could also create the vocab and tags using CKAN's API,
@@ -28,7 +29,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         user = toolkit.get_action('get_site_user')({'ignore_auth': True}, {})
         context = {'user': user['name']}
         try:
-            data = {'name': 'coat_vocabulary'}
+            data = {'id': 'coat_vocabulary'}
             toolkit.get_action('vocabulary_show')(context, data)
         except toolkit.ObjectNotFound:
             data = {'name': 'coat_vocabulary'}
@@ -105,3 +106,16 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
                    'package_create':
                        ckanext.coatcustom.logic.action.create.package_create
         }
+
+    # IFacets
+
+    def _facets(self, facets_dict):
+        if 'groups' in facets_dict:
+            del facets_dict['groups']
+        facets_dict['location'] = toolkit._('locations')
+        facets_dict['organization'] = toolkit._('Modules')
+        facets_dict['topic_category'] = toolkit._('Topic Category')
+        return facets_dict
+
+    def dataset_facets(self, facets_dict, package_type):
+        return self._facets(facets_dict)
