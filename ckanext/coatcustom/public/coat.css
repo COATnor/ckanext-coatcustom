@@ -1,4 +1,13 @@
 
+.main-header {
+  background: black;
+  height: 112px;
+}
+
+.coat-logo .logo img.resize {
+  max-height: 112px;
+}
+
 .hero {
   background: url("/images/OriginaltGeirVie_pano_2.jpg") repeat-x center center;
 }

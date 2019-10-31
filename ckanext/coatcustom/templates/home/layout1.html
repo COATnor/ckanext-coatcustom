@@ -7,7 +7,6 @@
     </div>
     <div class="row row2">
       <div class="col-md-3 col1">
-
       </div>
       <div class="col-md-6 col2">
         {% block search %}
@@ -15,7 +14,6 @@
         {% endblock %}
       </div>
       <div class="col-md-3 col3">
-
       </div>
     </div>
   </div>
@@ -24,14 +22,9 @@
   <div class="container">
     <div class="row row3">
       <div class="col-md-6 col1">
-        {# Note: this featured_group block is used as an example in the theming
-           tutorial in the docs! If you change this code, be sure to check
-           whether you need to update the docs. #}
-        {# Start template block example. #}
-        {% block featured_group %}
-          {% snippet 'home/snippets/featured_group.html' %}
+        {% block promoted %}
+          {% snippet 'home/snippets/promoted.html' %}
         {% endblock %}
-        {# End template block example. #}
       </div>
       <div class="col-md-6 col2">
         {% block featured_organization %}
