@@ -21,27 +21,32 @@ def package_create(coat_package_create, context, data_dict):
     s = scheming_get_dataset_schema(t, expanded)
     #data_dict['temp'] = s
 
-    e = 0.001  # epsilon
-    geometry = {
-        'type': 'MultiPolygon',
-        'coordinates': [],
-    }
-
+    longitudes = []
+    latitudes = []
     for field in s['dataset_fields']:
         if field['field_name'] != 'location':
             continue
         for choice in helpers.scheming_locations_choices(None):
             if choice['value'] not in data_dict.get('location', []):
                 continue
-            lon = choice['lon']
-            lat = choice['lat']
-            geometry['coordinates'].append([[
-                [lon-e, lat-e],
-                [lon-e, lat+e],
-                [lon+e, lat+e],
-                [lon+e, lat-e],
-                [lon-e, lat-e],
-            ]])
+            longitudes.append(choice['lon'])
+            latitudes.append(choice['lat'])
+
+    if not longitudes or not latitudes:
+        return coat_package_create(context, data_dict)
+
+    lon_min, lon_max = min(longitudes), max(longitudes)
+    lat_min, lat_max = min(latitudes), max(latitudes)
+    geometry = {
+        'type': 'Polygon',
+        'coordinates': [[
+            [lon_min, lat_max],
+            [lon_max, lat_max],
+            [lon_max, lat_min],
+            [lon_min, lat_min],
+            [lon_min, lat_max],
+        ]],
+    }
 
     data_dict.setdefault('extras', [])  #?
 
