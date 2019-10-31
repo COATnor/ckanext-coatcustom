@@ -6,13 +6,10 @@ _get_or_bust = logic.get_or_bust
 
 
 def data_dict_with_spatial(context, data_dict):
-    # parent dataset
-    # https://github.com/aptivate/ckanext-datasetversions/issues/10
-
-    t = _get_or_bust(data_dict, "type")
+    #t = _get_or_bust(data_dict, "type")
+    t = 'dataset'
     expanded = data_dict.get("expanded", True)
     s = scheming_get_dataset_schema(t, expanded)
-    # data_dict['temp'] = s
 
     longitudes = []
     latitudes = []
