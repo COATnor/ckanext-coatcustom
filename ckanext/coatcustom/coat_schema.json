@@ -12,7 +12,6 @@
     },
     {
       "field_name": "name",
-      "required": true,
       "label": "URL",
       "preset": "dataset_slug",
       "form_placeholder": "eg. my-dataset"
@@ -20,18 +19,20 @@
     {
       "field_name": "version",
       "label": "Version",
-      "validators": "unicode package_version_validator",
+      "validators": "ignore_missing unicode package_version_validator",
       "form_snippet": null
     },
     {
       "field_name": "owner_org",
       "required": true,
+      "validators": "ignore_missing",
       "label": "Module",
       "preset": "dataset_organization"
     },
     {
       "field_name": "notes",
       "required": true,
+      "validators": "ignore_missing",
       "label": "Description",
       "form_snippet": "markdown.html",
       "form_placeholder": "eg. Some useful notes about the data"
@@ -39,6 +40,7 @@
     {
       "field_name": "tag_string",
       "required": true,
+      "validators": "ignore_missing",
       "label": "tags (keywords)",
       "preset": "tag_string_autocomplete",
       "choices_helper": "scheming_tags_choices",
@@ -48,6 +50,7 @@
     {
       "field_name": "topic_category",
       "required": true,
+      "validators": "ignore_missing",
       "label": "Topic Category Code",
       "preset": "select",
       "form_placeholder": "INSPIRE/ISO Topic Categories ",
@@ -62,6 +65,7 @@
     {
       "field_name": "license_id",
       "required": true,
+      "validators": "ignore_missing",
       "label": "License",
       "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
       "preset": "select",
@@ -79,6 +83,7 @@
     {
       "field_name": "author",
       "required": true,
+      "validators": "ignore_missing",
       "label": "Contact Person",
       "form_placeholder": "data collector/creator or maintainer",
       "display_property": "dc:creator"
@@ -86,6 +91,7 @@
     {
       "field_name": "publisher",
       "required": true,
+      "validators": "ignore_missing",
       "label": "Organization Name",
       "form_placeholder": "Name of the contact person's organization",
       "display_property": "dc:publisher",
@@ -93,7 +99,6 @@
     },
     {
       "field_name": "author_email",
-      "required": true,
       "label": "Email Address",
       "form_placeholder": "joe@example.com",
       "display_property": "dc:creator",
@@ -127,7 +132,6 @@
     },
     {
       "field_name": "location",
-      "required": true,
       "label": "Geographic Location",
       "preset": "multiple_select",
       "help_text": "Data collection location (at different scales. Choose the most detailed possible)",

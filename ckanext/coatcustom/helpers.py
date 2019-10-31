@@ -23,7 +23,7 @@ def data_dict_with_spatial(context, data_dict):
             latitudes.append(choice["lat"])
 
     if not longitudes or not latitudes:
-        return coat_package_create(context, data_dict)
+        return data_dict
 
     lon_min, lon_max = min(longitudes), max(longitudes)
     lat_min, lat_max = min(latitudes), max(latitudes)
