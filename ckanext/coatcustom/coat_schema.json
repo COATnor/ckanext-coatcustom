@@ -20,20 +20,19 @@
     {
       "field_name": "version",
       "label": "Version",
-      "validators": "ignore_missing unicode package_version_validator",
+      "validators": "unicode package_version_validator",
       "form_snippet": null
     },
     {
       "field_name": "owner_org",
       "required": true,
-      "label": "Namespace",
+      "label": "Module",
       "preset": "dataset_organization"
     },
     {
       "field_name": "notes",
       "required": true,
       "label": "Description",
-      "validators": "ignore_missing",
       "form_snippet": "markdown.html",
       "form_placeholder": "eg. Some useful notes about the data"
     },
@@ -49,7 +48,6 @@
     {
       "field_name": "topic_category",
       "required": true,
-      "validators": "ignore_missing",
       "label": "Topic Category Code",
       "preset": "select",
       "form_placeholder": "INSPIRE/ISO Topic Categories ",
@@ -59,14 +57,13 @@
       "field_name": "embargo",
       "required": true,
       "label": "Embargo end date",
-      "validators": "ignore_missing",
-      "preset": "embargo"
+      "preset": "embargo",
+      "help_text": "Choose an embargo end date. Leave empty if embargo not needed"
     },
     {
       "field_name": "license_id",
       "required": true,
       "label": "License",
-      "validators": "ignore_missing",
       "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
       "preset": "select",
       "choices": [
@@ -83,7 +80,6 @@
     {
       "field_name": "author",
       "required": true,
-      "validators": "ignore_missing",
       "label": "Contact Person",
       "form_placeholder": "data collector/creator or maintainer",
       "display_property": "dc:creator"
@@ -91,15 +87,14 @@
     {
       "field_name": "publisher",
       "required": true,
-      "validators": "ignore_missing",
       "label": "Organization Name",
       "form_placeholder": "Name of the contact person's organization",
-      "display_property": "dc:publisher"
+      "display_property": "dc:publisher",
+      "help_text": "Affiliation of the dataset's Contact person, or Institution responsible for data dataset creation"
     },
     {
       "field_name": "author_email",
       "required": true,
-      "validators": "ignore_missing",
       "label": "Email Address",
       "form_placeholder": "joe@example.com",
       "display_property": "dc:creator",
@@ -133,6 +128,7 @@
     },
     {
       "field_name": "location",
+      "required": true,
       "label": "Geographic Location",
       "preset": "multiple_select",
       "help_text": "Data collection location (at different scales. Choose the most detailed possible)",
