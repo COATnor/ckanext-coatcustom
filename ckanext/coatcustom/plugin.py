@@ -4,6 +4,9 @@ import ckanext.coat.logic.action.create
 import ckanext.coatcustom.logic.action.create
 import ckanext.coatcustom.helpers as helpers
 
+import requests
+
+CKAN_SCHEMA = 'http://solr:8983/solr/ckan/schema'
 
 class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
@@ -18,6 +21,20 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'coatcustom')
+        self._custom_schema()
+
+    def _custom_schema(self):
+        response = requests.get(CKAN_SCHEMA+'/fields')
+        fields = response.json()['fields']
+        for name in "bbox_area maxx maxy minx miny".split():
+            new_field = {
+                "name": name,
+                "type": "float",
+                "indexed": "true",
+                "stored": "true",
+            }
+            if new_field not in fields:
+                requests.post(CKAN_SCHEMA, json={"add-field":new_field})
 
     def get_actions(self):
         return {
