@@ -31,10 +31,11 @@
   font-size: 40px;
 }
 
-.module-content {
+.module-search .search-form h3{
   color: black;
 }
 
-body {
-  color: #69B532;
+h3, h2 {
+  color: #69B76F;
 }
+

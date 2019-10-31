@@ -3,19 +3,22 @@
 <div class="module-content box">
   <header>
     {% if intro %}
-      {{ h.render_markdown(intro) }}
-    {% else %}
-      <h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
+      <h3 class="page-heading">{{ _("Climate-ecological Observatory for Arctic Tundra (COAT)") }}</h3>
       <p>
-        {% trans %}Climate-ecological Observatory for Arctic Tundra (COAT). Adaptive long-term research in the face of climate change.
+        {% trans %}Adaptive long-term research in the face of climate change.
         {% endtrans %}
       </p>
+    <p>{% trans %}See more details at the
+        <a href="https://coat.no">Official COAT web site</a>{% endtrans %}</p>
+    {% else %}
+     <h3 class="page-heading">{{ _("Climate-ecological Observatory for Arctic Tundra (COAT)") }}</h3>
+      <p>
+        {% trans %}Adaptive long-term research in the face of climate change.
+        {% endtrans %}
+      </p>
+    <p>{% trans %}See more details at the
+        <a href="https://coat.no">Official COAT web site</a>{% endtrans %}</p>
     {% endif %}
   </header>
-  <section class="featured media-overlay">
-    <h2 class="media-heading">{{ _("Varanger NDVI map.") }}</h2>
-    <a class="media-image" href="https://www.flickr.com/photos/notbrucelee/8016200072">
-      <img src="{% url_for_static('/images/Varanger_map.png') %}" alt="Varanger NDVI" width="420" height="220" />
-    </a>
-  </section>
+
 </div>
