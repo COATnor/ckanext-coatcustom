@@ -2,6 +2,8 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import ckanext.coat.logic.action.create
 import ckanext.coatcustom.logic.action.create
+import ckanext.coat.logic.action.update
+import ckanext.coatcustom.logic.action.update
 import ckanext.coatcustom.helpers as helpers
 
 import requests
@@ -41,7 +43,11 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
                    'coat_package_create':
                        ckanext.coat.logic.action.create.package_create,
                    'package_create':
-                       ckanext.coatcustom.logic.action.create.package_create
+                       ckanext.coatcustom.logic.action.create.package_create,
+                   'coat_package_update':
+                       ckanext.coat.logic.action.update.package_update,
+                   'package_update':
+                       ckanext.coatcustom.logic.action.update.package_update,
         }
 
     # IFacets

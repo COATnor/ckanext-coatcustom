@@ -1,3 +1,60 @@
+import ckan.logic as logic
+from ckanext.scheming.helpers import scheming_get_dataset_schema
+import json
+
+_get_or_bust = logic.get_or_bust
+
+
+def data_dict_with_spatial(context, data_dict):
+    # parent dataset
+    # https://github.com/aptivate/ckanext-datasetversions/issues/10
+
+    t = _get_or_bust(data_dict, "type")
+    expanded = data_dict.get("expanded", True)
+    s = scheming_get_dataset_schema(t, expanded)
+    # data_dict['temp'] = s
+
+    longitudes = []
+    latitudes = []
+    for field in s["dataset_fields"]:
+        if field["field_name"] != "location":
+            continue
+        for choice in scheming_locations_choices(None):
+            if choice["value"] not in data_dict.get("location", []):
+                continue
+            longitudes.append(choice["lon"])
+            latitudes.append(choice["lat"])
+
+    if not longitudes or not latitudes:
+        return coat_package_create(context, data_dict)
+
+    lon_min, lon_max = min(longitudes), max(longitudes)
+    lat_min, lat_max = min(latitudes), max(latitudes)
+    geometry = {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [lon_min, lat_max],
+                [lon_max, lat_max],
+                [lon_max, lat_min],
+                [lon_min, lat_min],
+                [lon_min, lat_max],
+            ]
+        ],
+    }
+
+    value = json.dumps(geometry)
+    data_dict.setdefault("extras", [])  # ?
+    for item in data_dict["extras"]:
+        if item.get("key") == "spatial":
+            item["value"] = value
+            break
+    else:
+        data_dict["extras"].append({"key": "spatial", "value": value})
+
+    return data_dict
+
+
 def scheming_tags_choices(field):
     return [
         {"value": "aerial-imagery", "label": "Aerial imagery"},
