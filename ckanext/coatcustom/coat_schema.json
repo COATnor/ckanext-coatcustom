@@ -55,7 +55,6 @@
     },
     {
       "field_name": "embargo",
-      "required": true,
       "label": "Embargo end date",
       "preset": "embargo",
       "help_text": "Choose an embargo end date. Leave empty if embargo not needed"
