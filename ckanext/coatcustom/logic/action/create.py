@@ -48,10 +48,13 @@ def package_create(coat_package_create, context, data_dict):
         ]],
     }
 
-    data_dict.setdefault('extras', [])  #?
-
     value = json.dumps(geometry)
-    data_dict['extras'].append({'key': 'spatial', 'value': value})
-    data_dict['spatial'] = value  # serve?
+    data_dict.setdefault('extras', [])  #?
+    for item in data_dict['extras']:
+        if item.get('key') == 'spatial':
+            item['value'] = value
+            break
+    else:
+        data_dict['extras'].append({'key': 'spatial', 'value': value})
 
     return coat_package_create(context, data_dict)
