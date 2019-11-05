@@ -485,7 +485,7 @@ def scheming_locations_choices(field):
     for location in locations:
         label = location['label'].split(' - ')[-1]
         location['value'] = ''.join(c for c in label.lower() if c.isalpha())
-    return locations
+    return sorted(locations, key = lambda kv: kv['label'])
 
 
 def scheming_topic_category_choices(field):
