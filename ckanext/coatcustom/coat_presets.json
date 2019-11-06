@@ -127,7 +127,12 @@
         "form_snippet": "json.html",
         "display_snippet": "json.html"
       }
+    },
+    {
+      "preset_name": "scientific_name_string_autocomplete",
+      "values": {
+        "form_snippet": "scientific_name.html"
+      }
     }
-
   ]
 }
