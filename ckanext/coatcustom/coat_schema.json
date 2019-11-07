@@ -134,7 +134,7 @@
     {
       "field_name": "location",
       "label": "Geographic Location",
-      "help_text": "Data collection location (at different scales. Choose the most detailed possible)",
+      "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_multiple_choice",
       "sorted_choices": true
