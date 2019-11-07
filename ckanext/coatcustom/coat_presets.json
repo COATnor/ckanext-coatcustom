@@ -33,6 +33,12 @@
       }
     },
     {
+      "preset_name": "tag_string_autocomplete_custom",
+      "values": {
+        "form_snippet": "tags_autocomplete.html"
+      }
+    },
+    {
       "preset_name": "dataset_organization",
       "values": {
         "validators": "owner_org_validator unicode",

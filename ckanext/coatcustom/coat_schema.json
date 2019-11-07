@@ -42,7 +42,7 @@
       "required": true,
       "validators": "ignore_missing",
       "label": "tags (keywords)",
-      "preset": "multiple_choice_autocomplete",
+      "preset": "tag_string_autocomplete_custom",
       "choices_helper": "scheming_multiple_choice",
       "sorted_choices": true,
       "form_placeholder": "choose one or more keywords from the COAT list",
