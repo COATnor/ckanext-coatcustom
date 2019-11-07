@@ -65,6 +65,12 @@ def data_dict_with_spatial(context, data_dict):
     return data_dict
 
 
+def scheming_multiple_choice(field):
+    if field.get("field_name") == "scientific_name":
+        return scheming_scientific_name_choices(field)
+    return []
+
+
 def scheming_tags_choices(field):
     return [
         {"value": "aerial-imagery", "label": "Aerial imagery"},

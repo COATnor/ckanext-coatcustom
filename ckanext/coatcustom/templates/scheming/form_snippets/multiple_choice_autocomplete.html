@@ -15,7 +15,7 @@
     extra_html=help_text()
     ) -%}
   {%- set choices = [] -%}
-  {%- for c in h.scheming_scientific_name_choices(field) -%}
+  {%- for c in h.scheming_multiple_choice(field) -%}
     {%- do choices.append(
       (c.value, h.scheming_language_text(c.label))) -%}
   {%- endfor -%}

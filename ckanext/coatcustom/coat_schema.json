@@ -142,8 +142,9 @@
       "label": "Scientific Name",
       "form_placeholder": "Scientific name - Taxonomy",
       "validators": "ignore_missing",
-      "preset": "scientific_name_string_autocomplete",
-      "choices_helper": "scheming_scientific_name_choices"
+      "preset": "multiple_choice_autocomplete",
+      "choices_helper": "scheming_multiple_choice",
+      "sorted_choices": true
     },
     {
       "field_name": "resource_citations",

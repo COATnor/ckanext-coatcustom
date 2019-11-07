@@ -129,9 +129,10 @@
       }
     },
     {
-      "preset_name": "scientific_name_string_autocomplete",
+      "preset_name": "multiple_choice_autocomplete",
       "values": {
-        "form_snippet": "scientific_name.html"
+        "form_snippet": "multiple_choice_autocomplete.html",
+        "display_snippet": "multiple_choice.html"
       }
     }
   ]
