@@ -39,8 +39,3 @@
 h3, h2 {
   color: #69B76F;
 }
-
-/*solving a glitch in tag input form */
-#s2id_field-tag_string {
-  padding: 0px
-}
