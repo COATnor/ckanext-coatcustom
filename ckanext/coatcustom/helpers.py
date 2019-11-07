@@ -68,6 +68,10 @@ def data_dict_with_spatial(context, data_dict):
 def scheming_multiple_choice(field):
     if field.get("field_name") == "scientific_name":
         return scheming_scientific_name_choices(field)
+    if field.get("field_name") == "location":
+        return scheming_locations_choices(field)
+    if field.get("field_name") == "tag_string":
+        return scheming_tags_choices(field)
     return []
 
 
