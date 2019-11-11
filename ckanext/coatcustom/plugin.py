@@ -16,6 +16,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IActions)
     plugins.implements(plugins.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IValidators)
 
     # IConfigurer
 
@@ -37,6 +38,16 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
             }
             if new_field not in fields:
                 requests.post(CKAN_SCHEMA, json={"add-field":new_field})
+
+    # IValidators
+
+    def get_validators(self):
+        return {
+            'str_to_bool': lambda s: str(s).lower() == "true",
+            'bool_to_str': lambda s: "True" if s else "False",
+        }
+
+    # IActions
 
     def get_actions(self):
         return {

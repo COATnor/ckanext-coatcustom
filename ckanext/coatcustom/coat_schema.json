@@ -30,6 +30,19 @@
       "preset": "dataset_organization"
     },
     {
+      "field_name": "private",
+      "label": "Visibility",
+      "required": true,
+      "validators": "str_to_bool",
+      "create_validators": "str_to_bool private_on_creation",
+      "show_validators": "bool_to_str",
+      "choices": [
+        { "label": "Private", "value": true },
+        { "label": "Public", "value": false }
+      ],
+      "preset": "select"
+    },
+    {
       "field_name": "notes",
       "required": true,
       "validators": "ignore_missing",
