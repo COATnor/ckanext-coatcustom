@@ -449,7 +449,7 @@ def scheming_locations_choices(field):
             "lat": 70.33535233,
         },
         {
-            "label": "Varanger - Varjjatnjarga - Komagdalen - Roussachokka",
+            "label": "Varanger - Varjjatnjarga - Komagdalen - Ruossachokka",
             "lon": 30.0043184621013,
             "lat": 70.33535233,
         },
