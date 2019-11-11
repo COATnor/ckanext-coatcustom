@@ -40,7 +40,8 @@
         { "label": "Private", "value": true },
         { "label": "Public", "value": false }
       ],
-      "preset": "select"
+      "preset": "select",
+      "help_text": "Public datasets: metadata available to everybody / resource available only if embargo is not set or is expired. Private dataset: available to members and editor of the module. New datasets should be set as private in order to add resources, as public dataset are immutable."
     },
     {
       "field_name": "notes",
@@ -59,7 +60,7 @@
       "choices_helper": "scheming_multiple_choice",
       "sorted_choices": true,
       "form_placeholder": "choose one or more keywords from the COAT list",
-      "help_text": "aerial imagery, air temperature, albedo, artificial nests, barcoding, birch forest, camera traps, dendroecology, distance sampling, dwarf shrub heath, experimental exclosures, flight intercept traps, forest, GPS tags, grassy tundra, ground ice, ground temperature, heath, humidity, hummock tundra, hunting records, ice thickness, icing, live trapping, meadow, metabarcoding, microsatellites, modelling, moss tundra, NDVI, NIRS, pellet counts, point intercept, population modelling, precipitation, radiation, rain on snow, remote sensing, repeat photography, satellite imagery, satellite tags, scat analysis, snap trapping, snow beds, snow depth, snow melt, snow modelling, snow pits, snow structure, snow tracking, soil temperature, stable isotopes, surveys, tall shrub, temperature, temperature logger, timing of icing, timing of snow melt, tundra, weather station, wind"
+      "help_text": "Select one or more appropriate tags; start to type to search."
     },
     {
       "field_name": "topic_category",
@@ -67,7 +68,7 @@
       "validators": "ignore_missing",
       "label": "Topic Category Code",
       "preset": "select",
-      "form_placeholder": "INSPIRE/ISO Topic Categories ",
+      "form_placeholder": "INSPIRE/ISO Topic Categories",
       "choices_helper": "scheming_topic_category_choices"
     },
     {
@@ -159,7 +160,8 @@
       "validators": "ignore_missing",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_multiple_choice",
-      "sorted_choices": true
+      "sorted_choices": true,
+      "help_text": "Scientific name. Choose the most detailed possible. You can also choose several."
     },
     {
       "field_name": "resource_citations",
