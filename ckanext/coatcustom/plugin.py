@@ -5,8 +5,8 @@ import ckanext.coatcustom.logic.action.create
 import ckanext.coat.logic.action.update
 import ckanext.coatcustom.logic.action.update
 import ckanext.coatcustom.helpers as helpers
+import ckanext.coatcustom.validators as validators
 
-import json
 import requests
 
 CKAN_SCHEMA = 'http://solr:8983/solr/ckan/schema'
@@ -43,10 +43,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     # IValidators
 
     def get_validators(self):
-        return {
-            'str_to_bool': lambda s: str(s).lower() == "true",
-            'multiple_to_json': lambda l: json.dumps(l) if l else "[]",
-        }
+        return { name:getattr(validators, name) for name in dir(validators) }
 
     # IActions
 
