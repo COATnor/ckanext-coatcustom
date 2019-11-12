@@ -1,3 +1,4 @@
+import ckanext.coatcustom.helpers as helpers
 import json
 
 def str_to_bool(value):
@@ -7,3 +8,23 @@ def multiple_to_json(iterable):
     if not iterable:  # Missing object
         iterable = []
     return json.dumps(iterable)
+
+def select_parent_locations(selected_values):
+    if not selected_values:
+        return []
+    if type(selected_values) != list:
+        selected_values = [selected_values]
+    generated = set(selected_values)
+    choices = helpers.scheming_locations_choices(None)
+    value_to_label = {c['value']:c['label'] for c in choices}
+    label_to_value = {c['label']:c['value'] for c in choices}
+    sep = " - "
+    for selected_value in selected_values:
+        selected_label = value_to_label[selected_value]
+        for parts in range(selected_label.count(sep)):
+            section = selected_label.rsplit(sep, parts+1)[0]
+            if section in label_to_value:
+                generated.add(label_to_value[section])
+            else:
+                pass  # this should not happen
+    return list(generated)
