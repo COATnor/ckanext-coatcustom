@@ -44,7 +44,6 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     def get_validators(self):
         return {
             'str_to_bool': lambda s: str(s).lower() == "true",
-            'bool_to_str': lambda s: "True" if s else "False",
         }
 
     # IActions

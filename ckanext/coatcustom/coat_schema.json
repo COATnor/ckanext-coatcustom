@@ -35,12 +35,9 @@
       "required": true,
       "validators": "str_to_bool",
       "create_validators": "str_to_bool private_on_creation",
-      "show_validators": "bool_to_str",
-      "choices": [
-        { "label": "Private", "value": true },
-        { "label": "Public", "value": false }
-      ],
-      "preset": "select",
+      "edit_validators": "str_to_bool",
+      "form_snippet": "visibility.html",
+      "display_snippet": "visibility.html",
       "help_text": "Public datasets: metadata available to everybody / resource available only if embargo is not set or is expired. Private dataset: available to members and editor of the module. New datasets should be set as private in order to add resources, as public dataset are immutable."
     },
     {
