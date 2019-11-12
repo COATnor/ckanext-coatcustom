@@ -148,6 +148,7 @@
       "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_multiple_choice",
+      "validators": "multiple_to_json",
       "sorted_choices": true
     },
     {
@@ -157,6 +158,7 @@
       "validators": "ignore_missing",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_multiple_choice",
+      "validators": "multiple_to_json",
       "sorted_choices": true,
       "help_text": "Scientific name. Choose the most detailed possible. You can also choose several."
     },
