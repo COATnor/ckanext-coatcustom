@@ -38,8 +38,12 @@ def data_dict_with_spatial(context, data_dict):
     if not longitudes or not latitudes:
         return data_dict
 
-    lon_min, lon_max = min(longitudes), max(longitudes)
-    lat_min, lat_max = min(latitudes), max(latitudes)
+    # create buffer (needed to index single-point bboxes)
+    # longitude buffer: < 5.6 meters at latitude > 60 degrees
+    # latitude buffer: ~11 meters
+    e = 0.0001
+    lon_min, lon_max = min(longitudes)-e, max(longitudes)+e
+    lat_min, lat_max = min(latitudes)-e, max(latitudes)+e
     geometry = {
         "type": "Polygon",
         "coordinates": [
