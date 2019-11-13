@@ -69,6 +69,20 @@ def data_dict_with_spatial(context, data_dict):
     return data_dict
 
 
+def utf8(s):
+    # ckan issue #5075
+    return s.decode('utf-8')
+
+def label_function(field_name):
+    field_name = field_name.split('extras_', 1)[-1]
+    choices = scheming_multiple_choice({'field_name': field_name})
+    if choices:
+        value_label = {c['value']:c['label'].split(" - ")[-1] for c in choices}
+        value_to_label = lambda v: value_label.get(v['name'], v['display_name'])
+        return lambda s: utf8(value_to_label(s))
+    return
+
+
 def scheming_multiple_choice(field):
     if field.get("field_name") == "scientific_name":
         return scheming_scientific_name_choices(field)
