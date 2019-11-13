@@ -28,6 +28,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         self._custom_schema()
 
     def _custom_schema(self):
+        # spatial
         response = requests.get(CKAN_SCHEMA+'/fields')
         fields = response.json()['fields']
         for name in "bbox_area maxx maxy minx miny".split():
@@ -39,6 +40,37 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
             }
             if new_field not in fields:
                 requests.post(CKAN_SCHEMA, json={"add-field":new_field})
+        # multivalued
+        requests.post(CKAN_SCHEMA, json={
+            "add-field-type": {
+                "name": "TextWithCommaTokenizer",
+                "class": "solr.TextField",
+                "analyzer": {
+                    "tokenizer": {
+                        "class": "solr.PatternTokenizerFactory",
+                        "pattern": ","
+                    }
+                }
+            }
+        })
+        response = requests.get(CKAN_SCHEMA+'/copyfields')
+        copyfields = response.json()['copyFields']
+        for name in "location scientific_name".split():
+            if {"dest": name+"s", "source": name} in copyfields:
+               continue
+            requests.post(CKAN_SCHEMA, json={
+                "add-field":{
+                    "name": name+"s",
+                    "type": "TextWithCommaTokenizer",
+                    "stored": True,
+                }
+            })
+            requests.post(CKAN_SCHEMA, json={
+                "add-copy-field":{
+                    "source": name,
+                    "dest": [name+"s"],
+                }
+            })
 
     # IValidators
 
@@ -64,8 +96,8 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     def _facets(self, facets_dict):
         if 'groups' in facets_dict:
             del facets_dict['groups']
-        facets_dict['extras_location'] = toolkit._('Locations')
-        facets_dict['extras_scientific_name'] = toolkit._('Scientific Name')
+        facets_dict['locations'] = toolkit._('Locations')
+        facets_dict['scientific_names'] = toolkit._('Scientific names')
         facets_dict['organization'] = toolkit._('Modules')
         facets_dict['topic_category'] = toolkit._('Topic Category')
         return facets_dict

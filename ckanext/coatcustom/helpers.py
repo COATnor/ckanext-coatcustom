@@ -69,20 +69,6 @@ def data_dict_with_spatial(context, data_dict):
     return data_dict
 
 
-def utf8(s):
-    # ckan issue #5075
-    return s.decode('utf-8')
-
-def label_function(field_name):
-    field_name = field_name.split('extras_', 1)[-1]
-    choices = scheming_multiple_choice({'field_name': field_name})
-    if choices:
-        value_label = {c['value']:c['label'].split(" - ")[-1] for c in choices}
-        value_to_label = lambda v: value_label.get(v['name'], v['display_name'])
-        return lambda s: utf8(value_to_label(s))
-    return
-
-
 def scheming_multiple_choice(field):
     if field.get("field_name") == "scientific_name":
         return scheming_scientific_name_choices(field)
@@ -513,8 +499,7 @@ def scheming_locations_choices(field):
         },
     ]
     for location in locations:
-        label = location['label'].split(' - ')[-1]
-        location['value'] = ''.join(c for c in label.lower() if c.isalpha())
+        location['value'] = location['label'].split(' - ')[-1]
     return locations
 
 
@@ -1144,6 +1129,5 @@ def scheming_scientific_name_choices(field):
         {'label': 'Curculionidae - Trypodendron signatum'},
     ]
     for name in names:
-        label = name['label'].split(' - ')[-1].split('(')[0]
-        name['value'] = ''.join(c for c in label.lower() if c.isalpha())
+        name['value'] = name['label'].split(' - ')[-1].split('(')[0]
     return names
