@@ -38,4 +38,13 @@
 /*we want headers in green */
 h3, h2 {
   color: #69B76F;
+  word-break: break-word;
+}
+
+li {
+  word-break: break-word;
+}
+
+h1 {
+  word-break: break-word;
 }
