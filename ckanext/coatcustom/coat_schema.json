@@ -140,7 +140,8 @@
     {
       "field_name": "temporal_end",
       "label": "Temporal Extent - end date",
-      "preset": "date"
+      "preset": "date",
+      "help_text": "Set the end date of current available data. It can be updated when new data files are added, and a new version created"
     },
     {
       "field_name": "location",
