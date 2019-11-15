@@ -76,7 +76,20 @@ def scheming_multiple_choice(field):
         return scheming_locations_choices(field)
     if field.get("field_name") == "tag_string":
         return scheming_tags_choices(field)
+    if field.get("field_name") == "associated_parties":
+        return scheming_publisher_choices(field)
     return []
+
+
+def scheming_publisher_choices(field):
+    return [
+        {"value": "UiT", "label": "UiT - The Arctic University of Norway"},
+        {"value": "NPI", "label": "NPI - Norwegian Polar Institute"},
+        {"value": "NINA", "label": "NINA - Norwegian Institute for Nature Research"},
+        {"value": "MET", "label": "MET - Norwegian Meteorological institute"},
+        {"value": "UNIS", "label": "UNIS - University Centre on Svalbard"},
+        {"value": "AU", "label": "AU - University of Aarhus"},
+    ]
 
 
 def scheming_tags_choices(field):

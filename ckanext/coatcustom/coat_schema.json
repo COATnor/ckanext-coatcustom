@@ -105,6 +105,8 @@
       "required": true,
       "validators": "ignore_missing",
       "label": "Organization Name",
+      "preset": "select",
+      "choices_helper": "scheming_publisher_choices",
       "form_placeholder": "Name of the contact person's organization",
       "display_property": "dc:publisher",
       "help_text": "Affiliation of the dataset's Contact person, or Institution responsible for data dataset creation"
@@ -125,6 +127,9 @@
     {
       "field_name": "associated_parties",
       "label": "Associated Parties",
+      "preset": "multiple_choice_autocomplete",
+      "choices_helper": "scheming_multiple_choice",
+      "validators": "multiple_to_string",
       "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... "
     },
     {
