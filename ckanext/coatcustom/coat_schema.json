@@ -218,6 +218,7 @@
     {
       "field_name": "format",
       "label": "Format",
+      "form_snippet": "text-noformcontrol.html",
       "preset": "resource_format_autocomplete"
     }
   ]
