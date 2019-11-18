@@ -8,12 +8,12 @@
     value=(data.get(field.field_name) or '').split()[0],
     error=errors[field.field_name],
     classes=['control-medium'],
-    attrs=dict({"class": "form-control"}, **(field.get('form_attrs', {}))),
+    attrs=dict(**(field.get('form_attrs', {}))),
     is_required=h.scheming_field_required(field)
     )
 %}
     <a href="javascript:(function() {document.getElementById('field-embargo').value='';})()">No embargo</a> /
     <a href="javascript:(function() {document.getElementById('field-embargo').value='2020-10-21';})()">1 year from now</a> /
-    <a href="javascript:(function() {document.getElementById('field-embargo').value='2021-10-21';})()">2 year from now</a>
+    <a href="javascript:(function() {document.getElementById('field-embargo').value='2021-10-21';})()">2 years from now</a>
     {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 {% endcall %}
