@@ -1,5 +1,5 @@
 {# copied from scheming/form_snippets/organization.html #}
-    <div class="control-group form-group control-medium">
+    <div class="control-group form-group control-medium" {% if 'id' not in data or data.state == 'draft' %}style="display: none;"{% endif %}>
       <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
       <div class="controls">
         <select id="field-private" name="private" class="form-control">

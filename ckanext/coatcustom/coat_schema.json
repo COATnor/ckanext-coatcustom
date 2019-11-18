@@ -38,7 +38,7 @@
       "edit_validators": "str_to_bool",
       "form_snippet": "visibility.html",
       "display_snippet": "visibility.html",
-      "help_text": "New datasets should be set as private in order to add resources, as public dataset are immutable. Public datasets have metadatas available to everybody and resources available only if embargo is not set or is expired. Private dataset are available to members and editors of the module only."
+      "help_text": "Public datasets are immutable and they are available to everybody in case embargo is not set or is expired (otherwise just medatada are shown). Private dataset are available to members and editors of the module only."
     },
     {
       "field_name": "notes",
