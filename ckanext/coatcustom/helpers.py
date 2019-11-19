@@ -70,6 +70,18 @@ def scheming_multiple_choice(field):
     return []
 
 
+def get_site_statistics():
+   stats = {}
+   stats['dataset_count'] = logic.get_action('package_search')(
+       {}, {"rows": 1})['count']
+   stats['group_count'] = len(logic.get_action('group_list')({}, {}))
+   stats['organization_count'] = len(
+       logic.get_action('organization_list')({}, {}))
+   stats['user_count'] = len(
+       logic.get_action('user_list')({}, {}))
+   return stats
+
+
 def scheming_publisher_choices(field):
     return [
         {"value": "UiT", "label": "UiT - The Arctic University of Norway"},
