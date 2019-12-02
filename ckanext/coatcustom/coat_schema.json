@@ -94,6 +94,8 @@
     },
     {
       "field_name": "author",
+      "preset": "select",
+      "choices_helper": "scheming_author_choice",
       "required": true,
       "validators": "ignore_missing",
       "label": "Contact Person",

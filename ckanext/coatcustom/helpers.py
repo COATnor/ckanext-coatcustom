@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import ckan.logic as logic
+import ckan.model as model
 from ckanext.scheming.helpers import scheming_get_dataset_schema
 import json
 
@@ -56,6 +57,16 @@ def data_dict_with_spatial(context, data_dict):
         data_dict["extras"].append({"key": "spatial", "value": value})
 
     return data_dict
+
+
+def scheming_author_choice(field):
+    for user in model.user.User.all():
+        if user.name in ('default',): # 'administrator'
+            continue
+        yield {
+            'value': user.name,
+            'label': user.fullname or user.name,
+        }
 
 
 def scheming_multiple_choice(field):
