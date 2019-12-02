@@ -172,7 +172,8 @@
     {
       "field_name": "resource_citations",
       "label": "Resource Citation",
-      "form_placeholder": "citation for the resource"
+      "validators": "citation_autocomplete",
+      "form_snippet": null
     },
     {
       "field_name": "scripts",

@@ -1,4 +1,6 @@
 import ckanext.coatcustom.helpers as helpers
+import ckan.plugins.toolkit as toolkit
+from ckan.common import config
 
 def str_to_bool(value):
     return str(value).lower() == "true"
@@ -29,3 +31,17 @@ def select_parent_locations(selected_values):
             else:
                 pass  # this should not happen
     return list(generated)
+
+def citation_autocomplete(key, data, errors, context):
+    data[key] = ''
+    pkg = context.get('package')
+    if not pkg:
+        return
+    pkg_dict = toolkit.get_action('package_show')(
+        context, {'id': pkg.id})
+    url = config['ckan.site_url'] + "/dataset/" + pkg.name
+    if pkg.author:
+        data[key] += pkg.author + " et al., "
+    data[key] += str(pkg.metadata_modified.year) + ", " + \
+                 pkg.name + ": COAT project data. " + \
+                 "Available online: " + url
