@@ -30,6 +30,8 @@
     {
       "field_name": "datamanager",
       "label": "Module Manager",
+      "preset": "select",
+      "choices_helper": "scheming_author_choice",
       "validators": "scheming_required",
       "required": true
     },
