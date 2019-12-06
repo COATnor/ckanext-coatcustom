@@ -164,10 +164,9 @@
       "field_name": "scientific_name",
       "label": "Scientific Name",
       "form_placeholder": "Scientific name - Taxonomy",
-      "validators": "ignore_missing",
+      "validators": "ignore_missing multiple_to_string",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_multiple_choice",
-      "validators": "multiple_to_string",
       "sorted_choices": true,
       "help_text": "Scientific name. Choose the most detailed possible. You can also choose several."
     },
