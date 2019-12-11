@@ -46,7 +46,7 @@
       "validators": "ignore_missing",
       "label": "Description",
       "form_snippet": "markdown.html",
-      "form_placeholder": "eg. Some useful notes about the data"
+      "form_placeholder": "Short description of the dataset, including relevant information about the content, data type, sampling method and frequency (or data source). Add any detail helping to understand the dataset's characteristics. Add a bulleted list of data file types included as resources to this dataset (ie: yearly txt with transect data, a coordinates CSV file, auxiliary file with details, etc.)"
     },
     {
       "field_name": "tag_string",
