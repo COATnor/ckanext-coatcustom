@@ -57,7 +57,7 @@
       "choices_helper": "scheming_multiple_choice",
       "sorted_choices": true,
       "form_placeholder": "choose one or more keywords from the COAT list",
-      "help_text": "Select one or more appropriate tags; start to type to search."
+      "help_text": "Select one or more appropriate tags; start typing to search."
     },
     {
       "field_name": "topic_category",
