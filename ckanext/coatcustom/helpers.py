@@ -62,7 +62,7 @@ def data_dict_with_spatial(context, data_dict):
 def scheming_author_choice(field):
     yield {
         'value': '',
-        'label': "Select a name",
+        'label': "-- Select a name --",
     }
     for user in model.user.User.all():
         if user.name in ('default',): # 'administrator'
@@ -106,6 +106,12 @@ def scheming_publisher_choices(field):
         {"value": "UNIS", "label": "UNIS - University Centre on Svalbard"},
         {"value": "AU", "label": "AU - University of Aarhus"},
     ]
+
+
+def scheming_publisher_choices_required(field):
+    yield {"value": "", "label": "-- Select a publisher --"}
+    for entry in scheming_publisher_choices(field):
+        yield entry
 
 
 def scheming_tags_choices(field):
@@ -534,6 +540,7 @@ def scheming_locations_choices(field):
 
 def scheming_topic_category_choices(field):
     return [
+        {"value": "", "label": "-- Select a category --"},
         {"value": "Biota", "label": "Biota"},
         {"value": "Boundaries", "label": "Boundaries"},
         {"value": "Climatology", "label": "Climatology /Meteorology /Atmosphere"},

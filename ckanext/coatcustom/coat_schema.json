@@ -118,7 +118,7 @@
       "validators": "required_custom",
       "label": "Organization Name",
       "preset": "select",
-      "choices_helper": "scheming_publisher_choices",
+      "choices_helper": "scheming_publisher_choices_required",
       "form_placeholder": "Name of the contact person's organization",
       "display_property": "dc:publisher",
       "help_text": "Affiliation of the dataset's Contact person, or Institution responsible for data dataset creation"
