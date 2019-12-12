@@ -60,6 +60,10 @@ def data_dict_with_spatial(context, data_dict):
 
 
 def scheming_author_choice(field):
+    yield {
+        'value': '',
+        'label': "Select a name",
+    }
     for user in model.user.User.all():
         if user.name in ('default',): # 'administrator'
             continue
