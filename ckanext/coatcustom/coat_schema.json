@@ -25,7 +25,6 @@
     {
       "field_name": "owner_org",
       "required": true,
-      "validators": "ignore_missing",
       "label": "Module",
       "preset": "dataset_organization"
     },
@@ -33,9 +32,9 @@
       "field_name": "private",
       "label": "Visibility",
       "required": true,
-      "validators": "str_to_bool",
-      "create_validators": "str_to_bool private_on_creation",
-      "edit_validators": "str_to_bool",
+      "validators": "required_custom str_to_bool",
+      "create_validators": "required_custom str_to_bool private_on_creation",
+      "edit_validators": "required_custom str_to_bool",
       "form_snippet": "visibility.html",
       "display_snippet": "visibility.html",
       "help_text": "Public datasets are immutable and they are available to everybody in case embargo is not set or is expired (otherwise just medatada are shown). Private dataset are available to members and editors of the module only."
@@ -43,15 +42,13 @@
     {
       "field_name": "notes",
       "required": true,
-      "validators": "ignore_missing",
+      "validators": "required_custom",
       "label": "Description",
       "form_snippet": "markdown.html",
       "form_placeholder": "Short description of the dataset, including relevant information about the content, data type, sampling method and frequency (or data source). Add any detail helping to understand the dataset's characteristics. Add a bulleted list of data file types included as resources to this dataset (ie: yearly txt with transect data, a coordinates CSV file, auxiliary file with details, etc.)"
     },
     {
       "field_name": "tag_string",
-      "required": true,
-      "validators": "ignore_missing",
       "label": "tags (keywords)",
       "preset": "tag_string_autocomplete_custom",
       "choices_helper": "scheming_multiple_choice",
@@ -62,7 +59,7 @@
     {
       "field_name": "topic_category",
       "required": true,
-      "validators": "ignore_missing",
+      "validators": "required_custom",
       "label": "Topic Category Code",
       "preset": "select",
       "form_placeholder": "INSPIRE/ISO Topic Categories",
@@ -77,7 +74,7 @@
     {
       "field_name": "license_id",
       "required": true,
-      "validators": "ignore_missing",
+      "validators": "required_custom",
       "label": "License",
       "help_text": "License definitions and additional information can be found at http://opendefinition.org/",
       "preset": "select",
@@ -97,7 +94,7 @@
       "preset": "select",
       "choices_helper": "scheming_author_choice",
       "required": true,
-      "validators": "ignore_missing",
+      "validators": "required_custom",
       "label": "Contact Person",
       "form_placeholder": "data collector/creator or maintainer",
       "display_property": "dc:creator"
@@ -118,7 +115,7 @@
     {
       "field_name": "publisher",
       "required": true,
-      "validators": "ignore_missing",
+      "validators": "required_custom",
       "label": "Organization Name",
       "preset": "select",
       "choices_helper": "scheming_publisher_choices",

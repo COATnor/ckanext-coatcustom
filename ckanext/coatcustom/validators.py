@@ -1,6 +1,14 @@
 import ckanext.coatcustom.helpers as helpers
 import ckan.plugins.toolkit as toolkit
 from ckan.common import config
+from ckan.lib.navl import validators as ckan_validators
+
+def required_custom(key, data, errors, context):
+    extras = data.get(('__extras',), {})
+    if extras.get('__parent'):
+        ckan_validators.ignore_missing(key, data, errors, context)
+    else:
+        ckan_validators.not_empty(key, data, errors, context)
 
 def str_to_bool(value):
     return str(value).lower() == "true"
