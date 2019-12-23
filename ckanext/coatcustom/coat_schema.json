@@ -210,7 +210,6 @@
       "field_name": "name",
       "label": "Name",
       "form_snippet": "resource_name.html",
-      "validators": "lowercase_extension resource_name_conflict",
       "form_placeholder": "eg. January 2011 Gold Prices"
     },
     {
