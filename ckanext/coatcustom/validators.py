@@ -13,6 +13,9 @@ def required_custom(key, data, errors, context):
 def str_to_bool(value):
     return str(value).lower() == "true"
 
+def bool_to_str(value):
+    return str(value)
+
 def multiple_to_string(iterable):
     if not iterable:  # Missing object
         iterable = ""

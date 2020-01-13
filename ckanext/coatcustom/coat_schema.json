@@ -32,9 +32,9 @@
       "field_name": "private",
       "label": "Visibility",
       "required": true,
-      "validators": "required_custom str_to_bool",
-      "create_validators": "required_custom str_to_bool private_on_creation",
-      "edit_validators": "required_custom str_to_bool",
+      "validators": "bool_to_str required_custom str_to_bool",
+      "create_validators": "bool_to_str required_custom str_to_bool private_on_creation",
+      "edit_validators": "bool_to_str required_custom str_to_bool",
       "form_snippet": "visibility.html",
       "display_snippet": "visibility.html",
       "help_text": "Public datasets are immutable and they are available to everybody in case embargo is not set or is expired (otherwise just medatada are shown). Private dataset are available to members and editors of the module only."
