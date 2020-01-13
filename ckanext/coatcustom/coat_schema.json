@@ -217,6 +217,12 @@
       "label": "Format",
       "form_snippet": "text-noformcontrol.html",
       "preset": "resource_format_autocomplete"
+    },
+    {
+      "field_name": "downloads",
+      "label": "Downloads",
+      "validators": "ignore_missing unicode",
+      "form_snippet": null
     }
   ]
 }
