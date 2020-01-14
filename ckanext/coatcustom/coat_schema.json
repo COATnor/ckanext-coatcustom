@@ -191,6 +191,12 @@
       "field_name": "funding",
       "label": "Funding Source",
       "form_placeholder": "funding source for the dataset "
+    },
+    {
+      "field_name": "downloads",
+      "label": "Downloads",
+      "validators": "ignore_missing unicode",
+      "form_snippet": null
     }
   ],
   "resource_fields": [
