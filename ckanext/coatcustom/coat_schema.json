@@ -100,8 +100,7 @@
       "label": "Email Address",
       "form_placeholder": "joe@example.com",
       "display_property": "dc:creator",
-      "display_snippet": "email.html",
-      "display_email_name_field": "contact"
+      "display_snippet": "email.html"
     },
     {
       "field_name": "position",
