@@ -63,7 +63,7 @@
       "label": "Topic Category Code",
       "preset": "select",
       "form_placeholder": "INSPIRE/ISO Topic Categories",
-      "choices_helper": "scheming_topic_category_choices"
+      "choices_helper": "scheming_topic_category_choices_required"
     },
     {
       "field_name": "embargo",

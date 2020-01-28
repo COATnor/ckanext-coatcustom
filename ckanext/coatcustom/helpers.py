@@ -533,7 +533,6 @@ def scheming_locations_choices(field):
 
 def scheming_topic_category_choices(field):
     return [
-        {"value": "", "label": "-- Select a category --"},
         {"value": "Biota", "label": "Biota"},
         {"value": "Boundaries", "label": "Boundaries"},
         {"value": "Climatology", "label": "Climatology /Meteorology /Atmosphere"},
@@ -554,6 +553,14 @@ def scheming_topic_category_choices(field):
         {"value": "Transportation", "label": "Transportation"},
         {"value": "utilities", "label": "Utilities / Communication"},
     ]
+
+
+def scheming_topic_category_choices_required(field):
+    choices = [
+        {"value": "", "label": "-- Select a category --"},
+    ]
+    choices.extend(scheming_topic_category_choices(field))
+    return choices
 
 
 def scheming_scientific_name_choices(field):
