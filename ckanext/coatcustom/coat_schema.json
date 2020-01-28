@@ -88,7 +88,7 @@
     {
       "field_name": "author",
       "preset": "select",
-      "choices_helper": "scheming_author_choice",
+      "choices_helper": "scheming_author_choice_required",
       "required": true,
       "validators": "required_custom",
       "label": "Contact Person",

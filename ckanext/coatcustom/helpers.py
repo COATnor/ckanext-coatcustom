@@ -60,10 +60,6 @@ def data_dict_with_spatial(context, data_dict):
 
 
 def scheming_author_choice(field):
-    yield {
-        'value': '',
-        'label': "-- Select a name --",
-    }
     for user in model.user.User.all():
         if user.name in ('default',): # 'administrator'
             continue
@@ -73,6 +69,13 @@ def scheming_author_choice(field):
         }
 
 
+def scheming_author_choice_required(field):
+    yield {
+        'value': '',
+        'label': "-- Select a name --",
+    }
+    for choice in scheming_author_choice(field):
+        yield choice
 
 
 def get_site_statistics():
