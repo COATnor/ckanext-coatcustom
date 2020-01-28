@@ -73,16 +73,6 @@ def scheming_author_choice(field):
         }
 
 
-def scheming_multiple_choice(field):
-    if field.get("field_name") == "scientific_name":
-        return scheming_scientific_name_choices(field)
-    if field.get("field_name") == "location":
-        return scheming_locations_choices(field)
-    if field.get("field_name") == "tag_string":
-        return scheming_tags_choices(field)
-    if field.get("field_name") == "associated_parties":
-        return scheming_publisher_choices(field)
-    return []
 
 
 def get_site_statistics():

@@ -15,7 +15,7 @@
     extra_html=help_text()
     ) -%}
   {%- set choices = [] -%}
-  {%- for c in h.scheming_multiple_choice(field) -%}
+  {%- for c in h.scheming_field_choices(field) -%}
     {%- do choices.append(
       (c.value, h.scheming_language_text(c.label))) -%}
   {%- endfor -%}
