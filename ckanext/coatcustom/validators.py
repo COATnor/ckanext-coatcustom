@@ -86,10 +86,10 @@ def oldest_from_datasets(key, data, errors, context):
             data[key] = value
 
 def merge_from_datasets(key, data, errors, context):
-    values = []
+    values = set()
     for package in _associated_datasets(data):
         value = package.get(key[0])
         if not value:
             continue
-        values.append(value)
+        values.update(value.split(","))
     data[key] = ",".join(values)
