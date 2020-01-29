@@ -56,3 +56,11 @@ def citation_autocomplete(key, data, errors, context):
     data[key] += str(pkg.metadata_modified.year) + ", " + \
                  pkg.name + ": COAT project data. " + \
                  "Available online: " + url
+
+def datasets_visibility(key, data, errors, context):
+    context['ignore_auth'] = True
+    for uid in data.get(('datasets',), '').split(','):
+        if toolkit.get_action('ckan_package_show')(context, {'id': uid})['private']:
+            if not str_to_bool(data[key]):
+                raise toolkit.Invalid('Cannot set a state variable as public '
+                    'if one or more associated datasets are private')
