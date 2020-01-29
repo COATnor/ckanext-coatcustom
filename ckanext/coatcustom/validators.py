@@ -69,7 +69,18 @@ def datasets_visibility(key, data, errors, context):
                 raise toolkit.Invalid('Cannot set a state variable as public '
                     'if one or more associated datasets are private')
 
-def embargo_from_datasets(key, data, errors, context):
-    for package in _associated_datasets( data):
-        if data[key] < package.get('embargo'):
-            data[key] = package.get('embargo')
+def newest_from_datasets(key, data, errors, context):
+    for package in _associated_datasets(data):
+        value = package.get(key[0])
+        if not value:
+            continue
+        if data[key] < value:
+            data[key] = value
+
+def oldest_from_datasets(key, data, errors, context):
+    for package in _associated_datasets(data):
+        value = package.get(key[0])
+        if not value:
+            continue
+        if data[key] < value:
+            data[key] = value

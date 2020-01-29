@@ -79,7 +79,7 @@
       "label": "Embargo end date",
       "form_snippet": null,
       "display_snippet": "embargo.html",
-      "validators": "embargo_from_datasets scheming_required isodate convert_to_json_if_date",
+      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date",
       "help_text": "Choose an embargo end date. Leave empty if embargo not needed"
     },
     {
@@ -145,13 +145,17 @@
     },
     {
       "field_name": "temporal_start",
+      "required": true,
       "label": "Temporal Extent - start date",
-      "preset": "date"
+      "form_snippet": null,
+      "validators": "oldest_from_datasets scheming_required isodate convert_to_json_if_date"
     },
     {
       "field_name": "temporal_end",
+      "required": true,
       "label": "Temporal Extent - end date",
-      "preset": "date",
+      "form_snippet": null,
+      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date",
       "help_text": "Set the end date of current available data. It can be updated when new data files are added, and a new version created"
     },
     {
