@@ -57,10 +57,19 @@ def citation_autocomplete(key, data, errors, context):
                  pkg.name + ": COAT project data. " + \
                  "Available online: " + url
 
-def datasets_visibility(key, data, errors, context):
-    context['ignore_auth'] = True
+def _associated_datasets(data):
+    context = {'ignore_auth': True}
     for uid in data.get(('datasets',), '').split(','):
-        if toolkit.get_action('ckan_package_show')(context, {'id': uid})['private']:
-            if not str_to_bool(data[key]):
+        yield toolkit.get_action('ckan_package_show')(context, {'id': uid})
+
+def datasets_visibility(key, data, errors, context):
+    if not str_to_bool(data[key]):
+        for package in _associated_datasets(data):
+            if package['private']:
                 raise toolkit.Invalid('Cannot set a state variable as public '
                     'if one or more associated datasets are private')
+
+def embargo_from_datasets(key, data, errors, context):
+    for package in _associated_datasets( data):
+        if data[key] < package.get('embargo'):
+            data[key] = package.get('embargo')

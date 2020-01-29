@@ -77,7 +77,9 @@
     {
       "field_name": "embargo",
       "label": "Embargo end date",
-      "preset": "embargo",
+      "form_snippet": null,
+      "display_snippet": "embargo.html",
+      "validators": "embargo_from_datasets scheming_required isodate convert_to_json_if_date",
       "help_text": "Choose an embargo end date. Leave empty if embargo not needed"
     },
     {
