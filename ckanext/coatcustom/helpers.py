@@ -61,7 +61,11 @@ def data_dict_with_spatial(context, data_dict):
 
 def scheming_dataset_choices(field):
     search = logic.get_action('ckan_package_search')({}, {
-        'q': 'dataset_type:dataset',
+        'q': ' AND '.join([
+            'dataset_type:dataset',
+            'state:active',
+            'version_i:*',
+        ]),
         'include_private': True,
     })
     for dataset in search['results']:
