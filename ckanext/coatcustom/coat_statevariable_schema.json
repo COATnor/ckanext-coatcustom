@@ -162,10 +162,10 @@
       "field_name": "location",
       "label": "Geographic Location",
       "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
-      "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_locations_choices",
-      "validators": "select_parent_locations multiple_to_string",
-      "sorted_choices": true
+      "form_snippet": null,
+      "display_snippet": "multiple_choice.html",
+      "validators": "merge_from_datasets"
     },
     {
       "field_name": "scientific_name",

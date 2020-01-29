@@ -84,3 +84,12 @@ def oldest_from_datasets(key, data, errors, context):
             continue
         if data[key] < value:
             data[key] = value
+
+def merge_from_datasets(key, data, errors, context):
+    values = []
+    for package in _associated_datasets(data):
+        value = package.get(key[0])
+        if not value:
+            continue
+        values.append(value)
+    data[key] = ",".join(values)
