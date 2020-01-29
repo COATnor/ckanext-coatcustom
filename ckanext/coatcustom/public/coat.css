@@ -1,3 +1,11 @@
+/* Fix for multiple dataset types tabs */
+.masthead .navigation .nav-pills li.active a {
+  background-color: inherit;
+}
+.masthead .navigation .nav-pills li.active a:hover,
+.masthead .navigation .nav-pills li.active a:active {
+  background-color: #003647;
+}
 
 .main-header {
   background: black;
