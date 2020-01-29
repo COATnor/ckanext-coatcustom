@@ -29,6 +29,15 @@
       "preset": "dataset_organization"
     },
     {
+      "field_name": "datasets",
+      "required": true,
+      "validators": "multiple_to_string",
+      "label": "Associated data",
+      "preset": "multiple_choice_autocomplete",
+      "choices_helper": "scheming_dataset_choices",
+      "sorted_choices": true
+    },
+    {
       "field_name": "private",
       "label": "Visibility",
       "required": true,

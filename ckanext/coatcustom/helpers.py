@@ -59,6 +59,20 @@ def data_dict_with_spatial(context, data_dict):
     return data_dict
 
 
+def scheming_dataset_choices(field):
+    search = logic.get_action('ckan_package_search')({}, {
+        'q': 'dataset_type:dataset',
+        'include_private': True,
+    })
+    for dataset in search['results']:
+        label = dataset['name']
+        if 'temporal_start' in dataset and 'temporal_end' in dataset:
+            label += " ({temporal_start} -> {temporal_end})".format(**dataset)
+        yield {
+            'value': dataset['id'],
+            'label': label,
+        }
+
 def scheming_author_choice(field):
     for user in model.user.User.all():
         if user.name in ('default',): # 'administrator'
