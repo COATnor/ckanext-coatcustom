@@ -61,10 +61,7 @@
       "label": "tags (keywords)",
       "form_snippet": null,
       "validators": "merge_tags_from_datasets",
-      "choices_helper": "scheming_tags_choices",
-      "sorted_choices": true,
-      "form_placeholder": "choose one or more keywords from the COAT list",
-      "help_text": "Select one or more appropriate tags; start typing to search."
+      "choices_helper": "scheming_tags_choices"
     },
     {
       "field_name": "topic_category",
@@ -80,8 +77,7 @@
       "label": "Embargo end date",
       "form_snippet": null,
       "display_snippet": "embargo.html",
-      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date",
-      "help_text": "Choose an embargo end date. Leave empty if embargo not needed"
+      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date"
     },
     {
       "field_name": "license_id",
@@ -99,11 +95,11 @@
     },
     {
       "field_name": "author",
-      "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_author_choice",
       "validators": "merge_from_datasets",
       "label": "Contact Persons",
       "form_snippet": null,
+      "display_snippet": "multiple_choice.html",
       "display_property": "dc:creator"
     },
     {
@@ -117,13 +113,12 @@
     {
       "field_name": "publisher",
       "required": true,
-      "validators": "multiple_to_string",
+      "validators": "merge_from_datasets",
       "label": "Organization Name",
-      "preset": "multiple_choice_autocomplete",
+      "form_snippet": null,
+      "display_snippet": "multiple_choice.html",
       "choices_helper": "scheming_publisher_choices",
-      "form_placeholder": "Name of the contact person's organization",
-      "display_property": "dc:publisher",
-      "help_text": "Affiliation of the dataset's Contact person, or Institution responsible for data dataset creation"
+      "display_property": "dc:publisher"
     },
     {
       "field_name": "associated_parties",
@@ -131,9 +126,7 @@
       "form_snippet": null,
       "display_snippet": "multiple_choice.html",
       "choices_helper": "scheming_publisher_choices",
-      "validators": "merge_from_datasets",
-      "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... ",
-      "help_text": "List of other related institutions or organizations"
+      "validators": "merge_from_datasets"
     },
     {
       "field_name": "persons",
@@ -154,13 +147,11 @@
       "required": true,
       "label": "Temporal Extent - end date",
       "form_snippet": null,
-      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date",
-      "help_text": "Set the end date of current available data. It can be updated when new data files are added, and a new version created"
+      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date"
     },
     {
       "field_name": "location",
       "label": "Geographic Location",
-      "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
       "choices_helper": "scheming_locations_choices",
       "form_snippet": null,
       "display_snippet": "multiple_choice.html",
@@ -173,8 +164,7 @@
       "choices_helper": "scheming_scientific_name_choices",
       "form_snippet": null,
       "display_snippet": "multiple_choice.html",
-      "validators": "merge_from_datasets",
-      "help_text": "Scientific name. Choose the most detailed possible. You can also choose several."
+      "validators": "merge_from_datasets"
     },
     {
       "field_name": "resource_citations",
