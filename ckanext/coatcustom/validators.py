@@ -93,3 +93,17 @@ def merge_from_datasets(key, data, errors, context):
             continue
         values.update(value.split(","))
     data[key] = ",".join(values)
+
+def merge_tags_from_datasets(key, data, errors, context):
+    # Extract tags from datasets
+    tags = {}
+    for package in _associated_datasets(data):
+        for tag in package['tags']:
+            tags[tag['name']] = tag
+    data[key] = ",".join(tags)
+    # Remove old tags
+    for data_key in data.keys():
+        if data_key[0] == 'tags':
+            del data[data_key]
+    # Create new tags
+    toolkit.get_validator('tag_string_convert')(key, data, errors, context)

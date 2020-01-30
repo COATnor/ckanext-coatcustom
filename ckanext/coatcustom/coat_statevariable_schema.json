@@ -59,7 +59,8 @@
     {
       "field_name": "tag_string",
       "label": "tags (keywords)",
-      "preset": "tag_string_autocomplete_custom",
+      "form_snippet": null,
+      "validators": "merge_tags_from_datasets",
       "choices_helper": "scheming_tags_choices",
       "sorted_choices": true,
       "form_placeholder": "choose one or more keywords from the COAT list",
