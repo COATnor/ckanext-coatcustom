@@ -69,10 +69,10 @@
     {
       "field_name": "topic_category",
       "required": true,
-      "validators": "multiple_to_string",
+      "validators": "merge_from_datasets",
       "label": "Topic Category Code",
-      "preset": "multiple_choice_autocomplete",
-      "form_placeholder": "INSPIRE/ISO Topic Categories",
+      "form_snippet": null,
+      "display_snippet": "multiple_choice.html",
       "choices_helper": "scheming_topic_category_choices"
     },
     {
