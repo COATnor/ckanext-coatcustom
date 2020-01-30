@@ -176,7 +176,7 @@
     },
     {
       "field_name": "protocol",
-      "label": "Study Protocol link",
+      "label": "Associated study protocol",
       "form_placeholder": "http://example.com/protocol.json",
       "display_snippet": "link.html"
     },
