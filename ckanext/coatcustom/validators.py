@@ -85,14 +85,20 @@ def newest_from_datasets(key, data, errors, context):
 def oldest_from_datasets(key, data, errors, context):
     _cmp_from_dataset(key, data, errors, context, cmp_exp=-1)
 
-def merge_from_datasets(key, data, errors, context):
+def merge_from_datasets(key, data, errors, context, sep=",", strip=False):
     values = set()
     for package in _associated_datasets(data):
         value = package.get(key[0])
         if not value:
             continue
-        values.update(value.split(","))
-    data[key] = ",".join(values)
+        for part in value.split(","):
+            if strip:
+                part = part.strip()
+            values.add(part)
+    data[key] = sep.join(values)
+
+def merge_from_datasets_human_readable(key, data, errors, context):
+    merge_from_datasets(key, data, errors, context, sep=", ", strip=True)
 
 def merge_tags_from_datasets(key, data, errors, context):
     # Extract tags from datasets

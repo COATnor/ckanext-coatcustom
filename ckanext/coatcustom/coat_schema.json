@@ -130,7 +130,7 @@
     {
       "field_name": "persons",
       "label": "Persons",
-      "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students...) "
+      "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students...), comma delimited"
     },
     {
       "field_name": "temporal_start",

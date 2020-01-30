@@ -143,6 +143,8 @@
     {
       "field_name": "persons",
       "label": "Persons",
+      "form_snippet": null,
+      "validators": "merge_from_datasets_human_readable",
       "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students...) "
     },
     {
