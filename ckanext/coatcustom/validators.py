@@ -69,21 +69,21 @@ def datasets_visibility(key, data, errors, context):
                 raise toolkit.Invalid('Cannot set a state variable as public '
                     'if one or more associated datasets are private')
 
-def newest_from_datasets(key, data, errors, context):
+def _cmp_from_dataset(key, data, errors, context, cmp_exp):
     for package in _associated_datasets(data):
         value = package.get(key[0])
         if not value:
-            continue
-        if data[key] < value:
+            continue  # error?
+        if not data[key]:
+            data[key] = value
+        if cmp(data[key], value) == cmp_exp:
             data[key] = value
 
+def newest_from_datasets(key, data, errors, context):
+    _cmp_from_dataset(key, data, errors, context, cmp_exp=1)
+
 def oldest_from_datasets(key, data, errors, context):
-    for package in _associated_datasets(data):
-        value = package.get(key[0])
-        if not value:
-            continue
-        if data[key] < value:
-            data[key] = value
+    _cmp_from_dataset(key, data, errors, context, cmp_exp=-1)
 
 def merge_from_datasets(key, data, errors, context):
     values = set()
