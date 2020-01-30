@@ -33,7 +33,8 @@
       "required": true,
       "validators": "multiple_to_string",
       "label": "Associated data",
-      "preset": "multiple_choice_autocomplete",
+      "form_snippet": "multiple_choice_autocomplete.html",
+      "display_snippet": "multiple_choice_datasets.html",
       "choices_helper": "scheming_dataset_choices",
       "sorted_choices": true
     },
