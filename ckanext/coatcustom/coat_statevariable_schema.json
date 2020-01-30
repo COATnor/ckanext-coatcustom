@@ -101,10 +101,9 @@
       "field_name": "author",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_author_choice",
-      "required": true,
-      "validators": "multiple_to_string",
-      "label": "Contact Person",
-      "form_placeholder": "data collector/creator or maintainer",
+      "validators": "merge_from_datasets",
+      "label": "Contact Persons",
+      "form_snippet": null,
       "display_property": "dc:creator"
     },
     {
