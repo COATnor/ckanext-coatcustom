@@ -109,9 +109,10 @@
     {
       "field_name": "author_email",
       "label": "Email Address",
-      "form_placeholder": "joe@example.com",
+      "form_snippet": null,
+      "validators": "merge_from_datasets",
       "display_property": "dc:creator",
-      "display_snippet": "email.html"
+      "display_snippet": "multiple_choice_email.html"
     },
     {
       "field_name": "position",
