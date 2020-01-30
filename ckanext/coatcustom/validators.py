@@ -59,8 +59,8 @@ def citation_autocomplete(key, data, errors, context):
 
 def _associated_datasets(data):
     context = {'ignore_auth': True}
-    for uid in data.get(('datasets',), '').split(','):
-        yield toolkit.get_action('ckan_package_show')(context, {'id': uid})
+    for name in data.get(('datasets',), '').split(','):
+        yield toolkit.get_action('ckan_package_show')(context, {'id': name})
 
 def datasets_visibility(key, data, errors, context):
     if not str_to_bool(data[key]):

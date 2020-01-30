@@ -73,7 +73,7 @@ def scheming_dataset_choices(field):
         if 'temporal_start' in dataset and 'temporal_end' in dataset:
             label += " ({temporal_start} -> {temporal_end})".format(**dataset)
         yield {
-            'value': dataset['id'],
+            'value': dataset['name'],
             'label': label,
         }
 
