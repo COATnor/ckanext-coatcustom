@@ -133,9 +133,10 @@
     {
       "field_name": "associated_parties",
       "label": "Associated Parties",
-      "preset": "multiple_choice_autocomplete",
+      "form_snippet": null,
+      "display_snippet": "multiple_choice.html",
       "choices_helper": "scheming_publisher_choices",
-      "validators": "multiple_to_string",
+      "validators": "merge_from_datasets",
       "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... ",
       "help_text": "List of other related institutions or organizations"
     },
