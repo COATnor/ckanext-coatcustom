@@ -96,6 +96,32 @@ def scheming_author_choice_required(field):
         yield choice
 
 
+def scheming_protocol_choice(field):
+    search = logic.get_action('ckan_package_search')({}, {
+        'q': ' AND '.join([
+            'dataset_type:protocol',
+            'state:active',
+            'version_i:*',
+        ]),
+        'include_private': True,
+    })
+    for dataset in search['results']:
+        label = dataset['name']
+        yield {
+            'value': dataset['name'],
+            'label': label,
+        }
+
+
+def scheming_protocol_choice_required(field):
+    yield {
+        'value': '',
+        'label': "-- Select a protocol --",
+    }
+    for choice in scheming_protocol_choice(field):
+        yield choice
+
+
 def get_site_statistics():
    stats = {}
    stats['dataset_count'] = logic.get_action('package_search')(
