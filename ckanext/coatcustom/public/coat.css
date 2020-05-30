@@ -56,3 +56,8 @@ li {
 h1 {
   word-break: break-word;
 }
+
+/* Hide URL field */
+.controls > .slug-preview {
+    display: none;
+}
