@@ -24,7 +24,14 @@
       <div class="module-content">
         <p style="text-align: justify">
           {% trans %}
-          <i>Missing description</i>
+          A state variable describes directly a feature related to
+          the state of the ecosystem.
+          Such features can be related to ecosystem functions,
+          or structure and processes. State variables are calculated based on
+          biotic or climatic datasets from COAT, and contain metadata fields
+          which link directly both to the underlying datasets
+          and the scripts documenting how the state variable
+          has been calculated from the datasets.
           {% endtrans %}
         </p>
       </div>
@@ -33,11 +40,12 @@
       <div class="module-content">
         <p style="text-align: justify">
           {% trans %}
-          COAT protocol includes a common part describing the study design,
+          COAT study protocol includes a common part describing the study design,
           and a set of data collection protocols.
-          Protocols are pdf-files placed at a fixed URL,
-          and are what users see when searching for data.
-          Protocols do not include metadata.
+          Protocols are pdf-files placed at a fixed URL.
+          COAT datasets contain a metadata field which link to the relevant
+          protocol describing the study design and collection of the data.
+          Protocols do not include separate metadata.
           {% endtrans %}
         </p>
       </div>
