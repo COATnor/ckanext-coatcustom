@@ -28,6 +28,19 @@
           {% endtrans %}
         </p>
       </div>
+    {% elif dataset_type == 'protocol' %}
+      <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('What are protocols?') }}</h2>
+      <div class="module-content">
+        <p style="text-align: justify">
+          {% trans %}
+          COAT protocol includes a common part describing the study design,
+          and a set of data collection protocols.
+          Protocols are pdf-files placed at a fixed URL,
+          and are what users see when searching for data.
+          Protocols do not include metadata.
+          {% endtrans %}
+        </p>
+      </div>
     {% else %}
       <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('What are datasets?') }}</h2>
       <div class="module-content">
