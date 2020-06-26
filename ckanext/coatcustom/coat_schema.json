@@ -17,6 +17,12 @@
       "form_placeholder": "eg. my-dataset"
     },
     {
+      "field_name": "doi",
+      "label": "DOI",
+      "validators": "ignore_missing unicode",
+      "form_snippet": null
+    },
+    {
       "field_name": "version",
       "label": "Version",
       "validators": "ignore_missing unicode package_version_validator",
