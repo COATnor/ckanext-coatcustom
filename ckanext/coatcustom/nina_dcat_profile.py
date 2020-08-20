@@ -31,3 +31,12 @@ class CoatDcatProfile(RDFProfile):
         Modified from EuropeanDCATAPProfile
     '''
 
+    def graph_from_dataset(self, dataset_dict, dataset_ref):
+
+        g = self.g
+
+        #for prefix, namespace in namespaces.iteritems():
+        #    g.bind(prefix, namespace)
+
+        
+
