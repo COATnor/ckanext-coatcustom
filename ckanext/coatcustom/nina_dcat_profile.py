@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from ckanext.dcat.profiles import RDFProfile
-from rdflib import BNode, Literal, URIRef
+from rdflib import BNode, Literal, URIRef, XSD
 from rdflib.namespace import Namespace, RDF
 
 DCT = Namespace("http://purl.org/dc/terms/")
@@ -41,13 +41,19 @@ class CoatDcatProfile(RDFProfile):
         publisher = URIRef("https://coat.no")
         description = "DCAT Catalog for the COAT project: Climate-ecological Observatory for Arctic Tundra"
 
-        agent = URIRef(FOAF.agent)
-        g.add((agent, FOAF.agent, publisher))
+        cat_agent = BNode()
+        g.add((cat_agent, FOAF.agent, publisher))
 
 
         # Adding Catalog elements
-        g.add((catalog_ref, DCT.publisher, agent))
+        g.add((catalog_ref, DCT.publisher, cat_agent))
         g.add((catalog_ref, DCT.description, Literal(description)))
+        g.add((catalog_ref, DCT.issued, Literal('2020-01-01',datatype=XSD.date)))
+        g.add((catalog_ref, DCT.license, Literal("CC-BY_4.0")))
+        g.add((catalog_ref, DCAT.themes, URIRef("https://publications.europa.eu/resource/dataset/data-theme")))
+
+        g.remove((catalog_ref, DCT.language, Literal("en_ZW")))
+        g.add((catalog_ref, DCT.language, Literal("en")))
 
 
     def graph_from_dataset(self, dataset_dict, dataset_ref):
@@ -60,25 +66,13 @@ class CoatDcatProfile(RDFProfile):
         # Here find only the metadata elements which are not already serialized to DCAT
         identifier = self._get_dataset_value(dataset_dict,'identifier')
         doi_identifier = self._get_dataset_value(dataset_dict, 'doi')
-        version = self._get_dataset_value(dataset_dict, 'version')
         license_id = self._get_dataset_value(dataset_dict, 'license_id')
         email = self._get_dataset_value(dataset_dict, 'author_email')
         position = self._get_dataset_value(dataset_dict, 'position')
         publisher = self._get_dataset_value(dataset_dict, 'publisher')
-        associated_parties = self._get_dataset_value(dataset_dict, 'associated_parties')
         persons = self._get_dataset_value(dataset_dict, 'persons')
         temporal_start = self._get_dataset_value(dataset_dict, 'temporal_Start')
         temporal_end = self._get_dataset_value(dataset_dict, 'temporal_end')
-        location = self._get_dataset_value(dataset_dict, 'location')
-        scientific_name = self._get_dataset_value(dataset_dict, 'scientific_name')
-        resource_citations = self._get_dataset_value(dataset_dict, 'resource_citations')
-        scripts = self._get_dataset_value(dataset_dict, 'scripts')
-        protocol = self._get_dataset_value(dataset_dict, 'protocol')
-        bibliography = self._get_dataset_value(dataset_dict, 'bibliography')
-        funding = self._get_dataset_value(dataset_dict, 'funding')
-        downloads = self._get_dataset_value(dataset_dict, 'downloads')
-
-
 
 
         if doi_identifier:
@@ -96,19 +90,29 @@ class CoatDcatProfile(RDFProfile):
         if position:
             g.add((DCAT.contactPoint, VCARD.hasRole, Literal(position)))
 
+        #TODO: Improve management of publishers, and make them URIs
         if publisher:
+            publisher = URIRef(publisher)
+
             old_publisher = g.value(dataset_ref, DCT.publisher)
             g.remove((dataset_ref, DCT.publisher, old_publisher))
-            g.add((dataset_ref, DCT.publisher, Literal(publisher)))
+
+            dat_agent = BNode()
+            g.add((dat_agent, FOAF.agent, publisher))
+            g.add((dataset_ref, DCT.publisher, dat_agent))
 
         if persons:
             for person in persons.split(","):
                 g.add((dataset_ref, VCARD.coworker, Literal(person)))
 
+        #TODO: manage temporal info
         if temporal_start and temporal_end:
             pass
 
+        theme = URIRef("https://publications.europa.eu/resource/authority/data-theme/ENVI")
+        g.add((dataset_ref, DCAT.theme, theme))
 
+        g.add((dataset_ref, DCT.language, Literal("en")))
 
 
 
