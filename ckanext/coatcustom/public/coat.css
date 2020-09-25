@@ -17,7 +17,10 @@
 }
 
 .hero {
-  background: url("/images/OriginaltGeirVie_pano_2.jpg") repeat-x center center;
+  background: url("/images/OriginaltGeirVie_pano_2.jpg") no-repeat center center;
+  background-repeat: no-repeat;
+  background-color: #E8E8E8;
+  background-size: 100%;
 }
 
 .account-masthead,
