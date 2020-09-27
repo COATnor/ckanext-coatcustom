@@ -84,6 +84,9 @@ setup(
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
+        
+        [ckan.rdf.profiles]
+        coat_dcat_profile = ckanext.coatcustom.nina_dcat_profile:CoatDcatProfile
     ''',
 
     # If you are changing from the default layout of your extension, you may
