@@ -6,7 +6,9 @@ import ckanext.coat.logic.action.update
 import ckanext.coatcustom.logic.action.update
 import ckanext.coatcustom.helpers as helpers
 import ckanext.coatcustom.validators as validators
-
+from ckanext.doi.interfaces import IDoi
+from ckanext.coat.helpers import extras_dict
+import json
 import requests
 
 CKAN_SCHEMA = 'http://solr:8983/solr/ckan/schema'
@@ -18,6 +20,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
+    plugins.implements(IDoi)
 
     # IConfigurer
 
@@ -109,3 +112,43 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
 
     def get_helpers(self):
         return { name:getattr(helpers, name) for name in dir(helpers) }
+
+    # IDoi
+
+    def build_metadata(self, pkg_dict, metadata_dict):
+        '''
+        ..seealso:: ckanext.doi.interfaces.IDoi.build_metadata
+        '''
+
+        # add COAT topic_category as Datacite subject
+        topic = pkg_dict.get(u'topic_category', None)
+        if topic:
+            metadata_dict[u'subject'] = topic
+
+        # add dataset version
+        metadata_dict[u'version'] = pkg_dict['version']
+
+        # modify publisher (defaults to NINA, as the Datacite customer)
+        if 'publisher' in pkg_dict:
+            metadata_dict[u'publisher'] = pkg_dict[u'publisher']
+
+        # bbox coordinates in COAT spatial are 5 lon-lat couples: NW - NE - SE - SW - NW
+        # converted to Datacite bbox format, 2 lat-lon couples white space separated: SW - NE
+        coordinates = json.loads(extras_dict(pkg_dict)['spatial'])['coordinates'][0]
+        north = coordinates[0][1]
+        east = coordinates[2][0]
+        south = coordinates[2][1]
+        west = coordinates[0][0]
+        bbox_datacite = "{} {} {} {}".format(south, west, north, east)
+        metadata_dict[u'geo_box'] = bbox_datacite
+
+        return metadata_dict
+
+    @staticmethod
+    def metadata_to_xml(xml_dict, metadata):
+        '''
+        ..seealso:: ckanext.doi.interfaces.IDoi.metadata_to_xml
+        '''
+
+        return xml_dict
+
