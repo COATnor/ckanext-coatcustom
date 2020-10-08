@@ -134,13 +134,14 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
 
         # bbox coordinates in COAT spatial are 5 lon-lat couples: NW - NE - SE - SW - NW
         # converted to Datacite bbox format, 2 lat-lon couples white space separated: SW - NE
-        coordinates = json.loads(extras_dict(pkg_dict)['spatial'])['coordinates'][0]
-        north = coordinates[0][1]
-        east = coordinates[2][0]
-        south = coordinates[2][1]
-        west = coordinates[0][0]
-        bbox_datacite = "{} {} {} {}".format(south, west, north, east)
-        metadata_dict[u'geo_box'] = bbox_datacite
+        if 'spatial' in extras_dict(pkg_dict):
+            coordinates = json.loads(extras_dict(pkg_dict)['spatial'])['coordinates'][0]
+            north = coordinates[0][1]
+            east = coordinates[2][0]
+            south = coordinates[2][1]
+            west = coordinates[0][0]
+            bbox_datacite = "{} {} {} {}".format(south, west, north, east)
+            metadata_dict[u'geo_box'] = bbox_datacite
 
         return metadata_dict
 
