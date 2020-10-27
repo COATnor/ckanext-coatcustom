@@ -140,15 +140,13 @@
       "field_name": "temporal_start",
       "required": true,
       "label": "Temporal Extent - start date",
-      "form_snippet": null,
-      "validators": "oldest_from_datasets scheming_required isodate convert_to_json_if_date"
+      "preset": "date"
     },
     {
       "field_name": "temporal_end",
       "required": true,
       "label": "Temporal Extent - end date",
-      "form_snippet": null,
-      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date"
+      "preset": "date"
     },
     {
       "field_name": "location",
