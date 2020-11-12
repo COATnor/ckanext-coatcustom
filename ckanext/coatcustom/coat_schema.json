@@ -140,13 +140,13 @@
     },
     {
       "field_name": "temporal_start",
-      "required": true,
+      "required": false,
       "label": "Temporal Extent - start date",
       "preset": "date"
     },
     {
       "field_name": "temporal_end",
-      "required": true,
+      "required": false,
       "label": "Temporal Extent - end date",
       "preset": "date",
       "help_text": "Set the end date of current available data. It can be updated when new data files are added, and a new version created"
@@ -188,7 +188,7 @@
       "validators": "ignore_missing multiple_to_string",
       "preset": "select",
       "choices_helper": "scheming_protocol_choice_required",
-      "required": true,
+      "required": false,
       "sorted_choices": true,
       "display_snippet": "link.html"
     },
