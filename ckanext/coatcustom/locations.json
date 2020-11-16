@@ -90,6 +90,16 @@
         "lon": 16.250824
     },
     {
+        "label": "Svalbard - Nordenskioldland - Adventdalen - Hiorthhamn",
+        "lat": 78.179487,
+        "lon": 16.250824
+    },
+    {
+        "label": "Svalbard - Nordenskioldland - Adventdalen - Longyeardalen",
+        "lat": 78.179487,
+        "lon": 16.250824
+    },
+    {
         "label": "Svalbard - Nordenskioldland - Alkhornet",
         "lat": 78.215766,
         "lon": 13.741739
@@ -116,6 +126,16 @@
     },
     {
         "label": "Svalbard - Nordenskioldland - Sassendalen - Eskerdalen",
+        "lat": 78.26552,
+        "lon": 17.211454
+    },
+    {
+        "label": "Svalbard - Nordenskioldland - Degeerdalen",
+        "lat": 78.26552,
+        "lon": 17.211454
+    },
+    {
+        "label": "Svalbard - Nordenskioldland - Degeerdalen - Diabas",
         "lat": 78.26552,
         "lon": 17.211454
     },
@@ -395,7 +415,7 @@
         "lon": 18.786
     },
     {
-        "label": "Troms - Storelva",
+        "label": "Troms - Kvaloysletta",
         "lat": 69.6924,
         "lon": 18.8209
     },
