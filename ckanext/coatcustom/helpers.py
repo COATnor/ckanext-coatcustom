@@ -22,7 +22,7 @@ def data_dict_with_spatial(context, data_dict):
         if field["field_name"] != "location":
             continue
         for choice in scheming_locations_choices(None):
-            if choice["value"] not in data_dict.get("location", []):
+            if choice["value"] not in (data_dict.get("location") or []):
                 continue
             longitudes.append(choice["lon"])
             latitudes.append(choice["lat"])
