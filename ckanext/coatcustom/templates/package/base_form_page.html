@@ -49,6 +49,15 @@
           {% endtrans %}
         </p>
       </div>
+    {% elif dataset_type == 'dmp' %}
+      <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('Data Management Plan?') }}</h2>
+      <div class="module-content">
+        <p style="text-align: justify">
+          {% trans %}
+          COAT Data Management Plan is included here, and all its versions available.
+          {% endtrans %}
+        </p>
+      </div>
     {% else %}
       <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('What are datasets?') }}</h2>
       <div class="module-content">
