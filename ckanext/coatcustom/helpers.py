@@ -6,7 +6,7 @@ from ckanext.scheming.helpers import scheming_get_dataset_schema
 import json
 import os
 
-file_dir = os.path.dirname(os.path.realpath(__file__))
+file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'presets')
 _get_or_bust = logic.get_or_bust
 
 
