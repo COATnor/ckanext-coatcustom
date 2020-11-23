@@ -170,28 +170,12 @@ def scheming_locations_choices(field):
     return locations
 
 
+with open(os.path.join(file_dir, 'categories.json')) as categories_file:
+    categories = json.load(categories_file)
+
+
 def scheming_topic_category_choices(field):
-    return [
-        {"value": "Biota", "label": "Biota"},
-        {"value": "Boundaries", "label": "Boundaries"},
-        {"value": "Climatology", "label": "Climatology /Meteorology /Atmosphere"},
-        {"value": "Economy", "label": "Economy"},
-        {"value": "Elevation", "label": "Elevation"},
-        {"value": "Environment", "label": "Environment"},
-        {"value": "Farming", "label": "Farming"},
-        {"value": "Geoscientific", "label": "Geoscientific Information"},
-        {"value": "Health", "label": "Health"},
-        {"value": "Imagery", "label": "Imagery / Base Maps / Earth Cover"},
-        {"value": "Inland_Waters", "label": "Inland Waters"},
-        {"value": "Intelligence", "label": "Intelligence / Military"},
-        {"value": "Location", "label": "Location"},
-        {"value": "Oceans", "label": "Oceans"},
-        {"value": "Planning", "label": "Planning / Cadastre"},
-        {"value": "Society", "label": "Society"},
-        {"value": "Structure", "label": "Structure"},
-        {"value": "Transportation", "label": "Transportation"},
-        {"value": "utilities", "label": "Utilities / Communication"},
-    ]
+    return categories
 
 
 def scheming_topic_category_choices_required(field):
