@@ -274,5 +274,53 @@
     {
         "value": "wind",
         "label": "Wind"
+    },
+    {
+        "value": "broad_leaved_grasses",
+        "label": "Broad leaved grasses"
+    },
+    {
+        "value": "deciduous_dwarf_shrubs",
+        "label": "Deciduous dwarf shrubs"
+    },
+    {
+        "value": "deciduous_vascular_cryptogams",
+        "label": "Deciduous vascular cryptogams"
+    },
+    {
+        "value": "evergreen_dwarf_shrubs",
+        "label": "Evergreen dwarf shrubs"
+    },
+    {
+        "value": "evergreen_non_woody",
+        "label": "Evergreen non woody"
+    },
+    {
+        "value": "hemiparasites",
+        "label": "Hemiparasites"
+    },
+    {
+        "value": "narrow_leaved_grasses",
+        "label": "Narrow leaved grasses"
+    },
+    {
+        "value": "prostrate_willows",
+        "label": "Prostrate willows"
+    },
+    {
+        "value": "sedges_rushes",
+        "label": "Sedges rushes"
+    },
+    {
+        "value": "small_forbs",
+        "label": "Small forbs"
+    },
+    {
+        "value": "tall_forbs",
+        "label": "Tall forbs"
+    },
+    {
+        "value": "bryophytes",
+        "label": "Bryophytes"
     }
 ]
