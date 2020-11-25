@@ -136,15 +136,12 @@ def get_site_statistics():
    return stats
 
 
+with open(os.path.join(file_dir, 'publishers.json')) as publishers_file:
+    publishers = json.load(publishers_file)
+
+
 def scheming_publisher_choices(field):
-    return [
-        {"value": "UiT", "label": "UiT - The Arctic University of Norway"},
-        {"value": "NPI", "label": "NPI - Norwegian Polar Institute"},
-        {"value": "NINA", "label": "NINA - Norwegian Institute for Nature Research"},
-        {"value": "MET", "label": "MET - Norwegian Meteorological institute"},
-        {"value": "UNIS", "label": "UNIS - University Centre on Svalbard"},
-        {"value": "AU", "label": "AU - University of Aarhus"},
-    ]
+    return publishers
 
 
 def scheming_publisher_choices_required(field):
