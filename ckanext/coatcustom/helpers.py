@@ -151,7 +151,7 @@ def scheming_publisher_choices_required(field):
 
 
 with open(os.path.join(file_dir, 'tags.json')) as tags_file:
-    tags = [{'label': label} for label in json.load(tags_file)]
+    tags = json.load(tags_file)
 
 
 def scheming_tags_choices(field):
@@ -184,10 +184,13 @@ def scheming_topic_category_choices_required(field):
 
 
 with open(os.path.join(file_dir, 'names.json')) as names_file:
-    names = json.load(names_file)
+    names = []
+    for name in json.load(names_file):
+        names.append({
+            'label': name,
+            'value': name.split(' - ')[-1].split('(')[0]
+        })
 
 
 def scheming_scientific_name_choices(field):
-    for name in names:
-        name['value'] = name['label'].split(' - ')[-1].split('(')[0]
     return names
