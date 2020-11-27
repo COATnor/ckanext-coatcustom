@@ -1,0 +1,24 @@
+{# https://github.com/ckan/ckanext-scheming/issues/268 #}
+{%- set values = data[field.field_name].split(',') -%}
+{%- set labels = [] -%}
+
+{%- for choice in h.scheming_field_choices(field) -%}
+    {%- for value in values -%}
+        {%- if choice.value == value -%}
+          {%- do labels.append(h.scheming_language_text(choice.label)) -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
+
+{%- if labels|length == 1 -%}
+  {{ labels[0] }}
+{%- else -%}
+    {%- if field.get('sorted_choices') -%}
+        {%- set labels = labels|sort -%}
+    {%- endif -%}
+    <ul>
+    {%- for label in labels -%}
+       <li>{{ label }}</li>
+    {%- endfor -%}
+    </ul>
+{%- endif -%}
