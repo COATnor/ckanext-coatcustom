@@ -62,14 +62,17 @@ def data_dict_with_spatial(context, data_dict):
 
 
 def scheming_dataset_choices(field):
-    search = logic.get_action('ckan_package_search')({}, {
+    params = {
         'q': ' AND '.join([
             'dataset_type:dataset',
             'state:active',
             'version_i:*',
         ]),
         'include_private': True,
-    })
+        'rows': 0,
+    }
+    params['rows'] = logic.get_action('ckan_package_search')({}, params)['count']
+    search = logic.get_action('ckan_package_search')({}, params)
     for dataset in search['results']:
         label = dataset['name']
         if 'temporal_start' in dataset and 'temporal_end' in dataset:
@@ -99,14 +102,17 @@ def scheming_author_choice_required(field):
 
 
 def scheming_protocol_choice(field):
-    search = logic.get_action('ckan_package_search')({}, {
+    params = {
         'q': ' AND '.join([
             'dataset_type:protocol',
             'state:active',
             'version_i:*',
         ]),
         'include_private': True,
-    })
+        'rows': 0,
+    }
+    params['rows'] = logic.get_action('ckan_package_search')({}, params)['count']
+    search = logic.get_action('ckan_package_search')({}, params)
     for dataset in search['results']:
         label = dataset['name']
         yield {
