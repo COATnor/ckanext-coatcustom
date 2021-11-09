@@ -48,6 +48,13 @@
         "label": "Distance sampling"
     },
     {
+        "value": "disturbed_moss_tundra",
+        "label": "Disturbed moss tundra"
+    },
+    {   "value": "dryas_ridges",
+        "label": "Dryas ridges"
+    },
+    {
         "value": "dwarf_shrub_heath",
         "label": "Dwarf shrub heath"
     },
@@ -72,6 +79,10 @@
         "label": "Forest"
     },
     {
+        "value": "goose_distrubance",
+        "label": "Goose disturbance"
+    },
+    {
         "value": "GPS_tags",
         "label": "GPS tags"
     },
@@ -90,6 +101,10 @@
     {
         "value": "ground_temperature",
         "label": "Ground temperature"
+    },
+    {
+        "value": "grubbin",
+        "label": "Grubbing"
     },
     {
         "value": "heath",
