@@ -13,10 +13,10 @@
   {% if h.check_access('package_update', {'id':pkg.id }) %}
   {# ckanext.coat customization - start #}
   {% if not h.datasetversions_is_old(pkg) %}
-    {% link_for _('New version'), named_route='dataset.new_version', uid=pkg.name, class_='btn btn-primary', icon='plus-square' %}
+    {% link_for _('New version'), named_route='coat.new_version', uid=pkg.name, class_='btn btn-primary', icon='plus-square' %}
   {% endif %}
   {# ckanext.coat customization - end #}
-    {% link_for _('Manage'), controller='package', action='edit', id=pkg.name, class_='btn btn-default', icon='wrench' %}
+    {% link_for _('Manage'), controller='dataset', action='edit', id=pkg.name, class_='btn btn-default', icon='wrench' %}
   {% endif %}
 {% endblock %}
 
@@ -46,7 +46,7 @@
     {% if h.coat_is_under_embargo(pkg) %}
       <span class="label label-warning">Dataset under embargo</span>
     {% else %}
-      {% link_for 'Download '+pkg.name+'.zip', named_route='dataset.zip', uid=pkg.name, class_="label label-primary" %}
+      {% link_for 'Download '+pkg.name+'.zip', named_route='coat.zip', uid=pkg.name, class_="label label-primary" %}
     {% endif %}
     {# ckanext.coat customization - end #}
     </span>

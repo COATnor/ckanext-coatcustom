@@ -52,10 +52,6 @@ class CoatDcatProfile(RDFProfile):
         g.add((catalog_ref, DCT.license, Literal("CC-BY_4.0")))
         g.add((catalog_ref, DCAT.themes, URIRef("https://publications.europa.eu/resource/dataset/data-theme")))
 
-        g.remove((catalog_ref, DCT.language, Literal("en_ZW")))
-        g.add((catalog_ref, DCT.language, Literal("en")))
-
-
     def graph_from_dataset(self, dataset_dict, dataset_ref):
 
         g = self.g

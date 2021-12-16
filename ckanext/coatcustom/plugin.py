@@ -20,7 +20,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IFacets, inherit=True)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
-    plugins.implements(IDoi)
+    plugins.implements(IDoi, inherit=True)
 
     # IConfigurer
 
@@ -28,6 +28,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'coatcustom')
+        toolkit.add_resource('assets', 'coatcustom')
         self._custom_schema()
 
     def _custom_schema(self):
@@ -115,11 +116,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
 
     # IDoi
 
-    def build_metadata(self, pkg_dict, metadata_dict):
-        '''
-        ..seealso:: ckanext.doi.interfaces.IDoi.build_metadata
-        '''
-
+    def build_metadata_dict(self, pkg_dict, metadata_dict, errors):
         # add COAT topic_category as Datacite subject
         topic = pkg_dict.get(u'topic_category', None)
         if topic:
@@ -143,7 +140,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
             bbox_datacite = "{} {} {} {}".format(south, west, north, east)
             metadata_dict[u'geo_box'] = bbox_datacite
 
-        return metadata_dict
+        return metadata_dict, errors
 
     @staticmethod
     def metadata_to_xml(xml_dict, metadata):
