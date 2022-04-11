@@ -78,7 +78,7 @@
       "label": "Embargo end date",
       "form_snippet": null,
       "display_snippet": "embargo.html",
-      "validators": "newest_from_datasets scheming_required isodate convert_to_json_if_date"
+      "validators": "scheming_required isodate convert_to_json_if_date"
     },
     {
       "field_name": "license_id",
