@@ -26,8 +26,6 @@ def multiple_to_string(iterable):
 def select_parent_locations(selected_values):
     if not selected_values:
         return []
-    if type(selected_values) != list:
-        selected_values = selected_values.split(',')
     generated = set(selected_values)
     choices = helpers.scheming_locations_choices(None)
     value_to_label = {c['value']:c['label'] for c in choices}

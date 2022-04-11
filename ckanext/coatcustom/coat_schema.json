@@ -157,7 +157,7 @@
       "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_locations_choices",
-      "validators": "select_parent_locations multiple_to_string",
+      "validators": "scheming_multiple_choice_output select_parent_locations multiple_to_string",
       "sorted_choices": true
     },
     {
