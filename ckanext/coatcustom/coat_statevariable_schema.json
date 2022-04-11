@@ -179,9 +179,12 @@
     },
     {
       "field_name": "protocol",
+      "validators": "multiple_to_string",
       "label": "Associated study protocol",
-      "form_placeholder": "http://example.com/protocol.json",
-      "display_snippet": "link.html"
+      "form_snippet": "multiple_choice_autocomplete.html",
+      "display_snippet": "multiple_choice_datasets.html",
+      "choices_helper": "scheming_protocol_choices",
+      "sorted_choices": true
     },
     {
       "field_name": "bibliography",

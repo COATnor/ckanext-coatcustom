@@ -61,10 +61,10 @@ def data_dict_with_spatial(context, data_dict):
     return data_dict
 
 
-def scheming_dataset_choices(field):
+def scheming_dataset_choices(field, dataset_type='dataset'):
     params = {
         'q': ' AND '.join([
-            'dataset_type:dataset',
+            'dataset_type:'+dataset_type,
             'state:active',
             'version_i:*',
         ]),
@@ -81,6 +81,11 @@ def scheming_dataset_choices(field):
             'value': dataset['name'],
             'label': label,
         }
+
+
+def scheming_protocol_choices(field):
+    yield from scheming_dataset_choices(field, dataset_type='protocol')
+
 
 def scheming_author_choice(field):
     for user in model.user.User.all():
