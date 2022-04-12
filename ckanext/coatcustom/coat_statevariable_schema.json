@@ -31,7 +31,8 @@
     {
       "field_name": "datasets",
       "required": true,
-      "validators": "multiple_to_string",
+      "validators": "commalist_to_json scheming_multiple_choice",
+      "output_validators": "commalist_to_json scheming_multiple_choice_output",
       "label": "Associated data",
       "form_snippet": "multiple_choice_autocomplete.html",
       "display_snippet": "multiple_choice_datasets.html",
@@ -179,7 +180,8 @@
     },
     {
       "field_name": "protocol",
-      "validators": "multiple_to_string",
+      "validators": "commalist_to_json scheming_multiple_choice",
+      "output_validators": "commalist_to_json scheming_multiple_choice_output",
       "label": "Associated study protocol",
       "form_snippet": "multiple_choice_autocomplete.html",
       "display_snippet": "multiple_choice_datasets.html",

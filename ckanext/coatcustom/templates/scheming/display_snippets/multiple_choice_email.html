@@ -1,4 +1,4 @@
-{%- set labels = data[field.field_name].split(',') -%}
+{%- set labels = data[field.field_name] -%}
 
 {%- if labels|length == 1 -%}
   {{ h.mail_to(email_address=labels[0].strip(), name=labels[0].strip()) }}

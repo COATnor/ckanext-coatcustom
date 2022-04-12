@@ -1,4 +1,4 @@
-{%- set values = data[field.field_name].split(',') -%}
+{%- set values = data[field.field_name] -%}
 
 {%- if values|length == 1 -%}
   {{ h.dataset_link({'name': values[0]}) }}

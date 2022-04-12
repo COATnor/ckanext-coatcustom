@@ -99,7 +99,8 @@
       "label": "Associated Parties",
       "preset": "multiple_choice_autocomplete",
       "choices_helper": "scheming_publisher_choices",
-      "validators": "multiple_to_string",
+      "validators": "commalist_to_json scheming_multiple_choice",
+      "output_validators": "commalist_to_json scheming_multiple_choice_output",
       "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... ",
       "help_text": "List of other related institutions or organizations"
     },
