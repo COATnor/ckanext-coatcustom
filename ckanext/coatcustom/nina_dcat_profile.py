@@ -56,7 +56,7 @@ class CoatDcatProfile(RDFProfile):
 
         g = self.g
 
-        for prefix, namespace in namespaces.iteritems():
+        for prefix, namespace in namespaces.items():
             g.bind(prefix, namespace)
 
         # Here find only the metadata elements which are not already serialized to DCAT
