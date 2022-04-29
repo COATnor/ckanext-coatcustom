@@ -127,10 +127,14 @@
     {
       "field_name": "associated_parties",
       "label": "Associated Parties",
-      "preset": "multiple_choice_autocomplete",
-      "choices_helper": "scheming_publisher_choices",
-      "validators": "ignore_missing commalist_to_json scheming_multiple_choice",
-      "output_validators": "commalist_to_json scheming_multiple_choice_output",
+      "preset": "tag_string_autocomplete",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/associated_parties/autocomplete?incomplete=?",
+        "class": ""
+      },
       "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... ",
       "help_text": "List of other related institutions or organizations"
     },
@@ -156,21 +160,32 @@
       "field_name": "location",
       "label": "Geographic Location",
       "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
-      "preset": "multiple_choice_autocomplete",
-      "choices_helper": "scheming_locations_choices",
-      "validators": "commalist_to_json select_parent_locations scheming_multiple_choice",
-      "output_validators": "commalist_to_json scheming_multiple_choice_output",
+      "preset": "tag_string_autocomplete",
+      "validators": "select_parent_locations list_to_tag_string",
+      "display_snippet": "tag_string.html",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/location/autocomplete?incomplete=?",
+        "class": ""
+      },
       "sorted_choices": true
     },
     {
       "field_name": "scientific_name",
       "label": "Scientific Name",
       "form_placeholder": "Scientific name - Taxonomy",
-      "validators": "ignore_missing scheming_multiple_choice_output",
-      "preset": "multiple_choice_autocomplete",
-      "choices_helper": "scheming_scientific_name_choices",
-      "validators": "commalist_to_json scheming_multiple_choice",
-      "output_validators": "commalist_to_json scheming_multiple_choice_output",
+      "preset": "tag_string_autocomplete",
+      "validators": "list_to_tag_string",
+      "display_snippet": "tag_string.html",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/scientific_name/autocomplete?incomplete=?",
+        "class": ""
+      },
       "sorted_choices": true,
       "help_text": "Scientific name. Choose the most detailed possible. You can also choose several."
     },
@@ -189,13 +204,16 @@
     {
       "field_name": "protocol",
       "label": "Associated study protocol",
-      "validators": "ignore_missing commalist_to_json scheming_multiple_choice",
-      "output_validators": "commalist_to_json scheming_multiple_choice_output",
-      "preset": "multiple_choice_autocomplete",
-      "choices_helper": "scheming_protocol_choice_required",
-      "required": false,
-      "sorted_choices": true,
-      "display_snippet": "link.html"
+      "preset": "tag_string_autocomplete",
+      "validators": "list_to_tag_string",
+      "display_snippet": "tag_string.html",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/dataset/autocomplete?dataset_type=protocol&incomplete=?",
+        "class": ""
+      }
     },
     {
       "field_name": "bibliography",

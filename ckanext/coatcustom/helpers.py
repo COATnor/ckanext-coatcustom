@@ -21,8 +21,9 @@ def data_dict_with_spatial(context, data_dict):
     for field in s["dataset_fields"]:
         if field["field_name"] != "location":
             continue
-        for choice in scheming_locations_choices(None):
-            if choice["value"] not in (data_dict.get("location") or []):
+        for choice in locations:
+            value = choice["label"].split(" - ")[-1]
+            if value not in (data_dict.get("location") or []):
                 continue
             longitudes.append(choice["lon"])
             latitudes.append(choice["lat"])
@@ -155,6 +156,11 @@ def scheming_publisher_choices(field):
     return publishers
 
 
+def scheming_publisher_tags(field=None):
+    for publisher in scheming_publisher_choices(field):
+        yield publisher['value']
+
+
 def scheming_publisher_choices_required(field):
     yield {"value": "", "label": "-- Select a publisher --"}
     for entry in scheming_publisher_choices(field):
@@ -172,10 +178,14 @@ def scheming_tags_choices(field):
 with open(os.path.join(file_dir, 'locations.json')) as locations_file:
     locations = json.load(locations_file)
 
+
 def scheming_locations_choices(field):
-    for location in locations:
-        location['value'] = location['label'].split(' - ')[-1]
     return locations
+
+
+def scheming_locations_tags(field=None):
+    for location in locations:
+        yield location['value']
 
 
 with open(os.path.join(file_dir, 'categories.json')) as categories_file:
@@ -205,3 +215,8 @@ with open(os.path.join(file_dir, 'names.json')) as names_file:
 
 def scheming_scientific_name_choices(field):
     return names
+
+
+def scheming_scientific_name_tags(field=None):
+    for scientific_name in scheming_scientific_name_choices(field):
+        yield scientific_name['value']

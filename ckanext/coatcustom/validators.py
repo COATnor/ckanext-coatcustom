@@ -2,6 +2,7 @@ import ckanext.coatcustom.helpers as helpers
 import ckan.plugins.toolkit as toolkit
 from ckan.common import config
 from ckan.lib.navl import validators as ckan_validators
+from ckanext.scheming.validation import scheming_load_json
 
 import json
 
@@ -21,27 +22,39 @@ def bool_to_str(value):
 def commalist_to_json(value):
     try:
         return json.loads(value)
-    except ValueError:
+    except (TypeError, ValueError):
         if type(value) == str:
             return value.split(',')
         else:
             return value
 
-def select_parent_locations(selected_values):
+def select_parent_locations(selected_values, sep=" - "):
     if not selected_values:
         return []
-    generated = set(selected_values)
-    choices = helpers.scheming_locations_choices(None)
-    value_to_label = {c['value']:c['label'] for c in choices}
-    label_to_value = {c['label']:c['value'] for c in choices}
-    sep = " - "
+    if type(selected_values) == str:
+        selected_values = selected_values.split(',')
+    elif type(selected_values) == list:
+        selected_values = [selected_values]
+    generated = set()
     for selected_value in selected_values:
-        selected_label = value_to_label[selected_value]
-        parts = selected_label.split(sep)
-        for index in range(len(parts)):
-            section = sep.join(parts[:index+1])
-            generated.add(label_to_value[section])
+        while sep in selected_value:
+            generated.add(selected_value)
+            selected_value, _ = selected_value.rsplit(sep, 1)
+        generated.add(selected_value)
     return list(generated)
+
+def list_to_tag_string(value):
+    if type(value) in (list, set):
+        return ','.join(value)
+    else:
+        return value
+
+def tag_string_to_list(value):
+    if type(value) in (list, set):
+        return value
+    else:
+        return [value]
+
 
 def citation_autocomplete(key, data, errors, context):
     data[key] = ''
@@ -51,16 +64,22 @@ def citation_autocomplete(key, data, errors, context):
     pkg_dict = toolkit.get_action('package_show')(
         context, {'id': pkg.id})
     url = config['ckan.site_url'] + "/dataset/" + pkg.name
-    if pkg.author:
-        data[key] += pkg.author + " et al., "
+    authors = scheming_load_json(pkg.author, None)
+    if isinstance(authors, str):
+        authors = [authors] if authors else []
+    authors = set(authors)
+    if authors:
+        data[key] += ', '.join(authors) + " et al., "
     data[key] += str(pkg.metadata_modified.year) + ", " + \
                  pkg.name + ": COAT project data. " + \
                  "Available online: " + url
 
 def _associated_datasets(data):
     context = {'ignore_auth': True}
-    for name in data.get(('datasets',), '').split(','):
-        yield toolkit.get_action('ckan_package_show')(context, {'id': name})
+    datasets = data.get(('datasets',), '')
+    if datasets:
+        for name in datasets.split(','):
+            yield toolkit.get_action('ckan_package_show')(context, {'id': name})
 
 def datasets_visibility(key, data, errors, context):
     if not str_to_bool(data[key]):
@@ -69,31 +88,31 @@ def datasets_visibility(key, data, errors, context):
                 raise toolkit.Invalid('Cannot set a state variable as public '
                     'if one or more associated datasets are private')
 
-def merge_from_datasets(key, data, errors, context, sep=",", strip=False):
+def merge_from_datasets(key, data, errors, context, sep=","):
     values = set()
     for package in _associated_datasets(data):
-        value = package.get(key[0])
-        if not value:
+        parts = package.get(key[0])
+        if not parts:
             continue
-        for part in value.split(","):
-            if strip:
-                part = part.strip()
-            values.add(part)
-    data[key] = sep.join(values)
-
-def merge_from_datasets_human_readable(key, data, errors, context):
-    merge_from_datasets(key, data, errors, context, sep=", ", strip=True)
+        if type(parts) == str:
+            parts = parts.split(sep)
+        for part in parts:
+            part = part.strip()
+            if part:
+                values.add(part)
+    data[key] = json.dumps(list(values))
 
 def merge_tags_from_datasets(key, data, errors, context):
     # Extract tags from datasets
-    tags = {}
+    tags = set()
     for package in _associated_datasets(data):
         for tag in package['tags']:
-            tags[tag['name']] = tag
+            if tag:
+                tags.add(tag['name'])
     data[key] = ",".join(tags)
     # Remove old tags
-    for data_key in data.keys():
-        if data_key[0] == 'tags':
-            del data[data_key]
+    #for data_key in data.copy().keys():
+    #    if data_key[0] == 'tags':
+    #        del data[data_key]
     # Create new tags
     toolkit.get_validator('tag_string_convert')(key, data, errors, context)

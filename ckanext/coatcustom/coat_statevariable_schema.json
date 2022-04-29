@@ -31,13 +31,17 @@
     {
       "field_name": "datasets",
       "required": true,
-      "validators": "commalist_to_json scheming_multiple_choice",
-      "output_validators": "commalist_to_json scheming_multiple_choice_output",
       "label": "Associated data",
-      "form_snippet": "multiple_choice_autocomplete.html",
-      "display_snippet": "multiple_choice_datasets.html",
-      "choices_helper": "scheming_dataset_choices",
-      "sorted_choices": true
+      "preset": "tag_string_autocomplete",
+      "validators": "list_to_tag_string",
+      "display_snippet": "tag_string.html",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/dataset/autocomplete?dataset_type=dataset&incomplete=?",
+        "class": ""
+      }
     },
     {
       "field_name": "private",
@@ -99,6 +103,7 @@
       "field_name": "author",
       "choices_helper": "scheming_author_choice",
       "validators": "merge_from_datasets",
+      "output_validators": "scheming_load_json",
       "label": "Contact Persons",
       "form_snippet": null,
       "display_snippet": "multiple_choice.html",
@@ -109,6 +114,7 @@
       "label": "Email Address",
       "form_snippet": null,
       "validators": "merge_from_datasets",
+      "output_validators": "scheming_load_json",
       "display_property": "dc:creator",
       "display_snippet": "multiple_choice_email.html"
     },
@@ -116,6 +122,7 @@
       "field_name": "publisher",
       "required": true,
       "validators": "merge_from_datasets",
+      "output_validators": "scheming_load_json",
       "label": "Organization Name",
       "form_snippet": null,
       "display_snippet": "multiple_choice.html",
@@ -128,13 +135,15 @@
       "form_snippet": null,
       "display_snippet": "multiple_choice.html",
       "choices_helper": "scheming_publisher_choices",
-      "validators": "merge_from_datasets"
+      "validators": "merge_from_datasets",
+      "output_validators": "scheming_load_json"
     },
     {
       "field_name": "persons",
       "label": "Persons",
       "form_snippet": null,
-      "validators": "merge_from_datasets_human_readable",
+      "validators": "merge_from_datasets",
+      "display_snippet": "multiple_choice.html",
       "form_placeholder": "Key people related to the dataset (eg: field technicians, PhD students...) "
     },
     {
@@ -180,13 +189,17 @@
     },
     {
       "field_name": "protocol",
-      "validators": "commalist_to_json scheming_multiple_choice",
-      "output_validators": "commalist_to_json scheming_multiple_choice_output",
       "label": "Associated study protocol",
-      "form_snippet": "multiple_choice_autocomplete.html",
-      "display_snippet": "multiple_choice_datasets.html",
-      "choices_helper": "scheming_protocol_choices",
-      "sorted_choices": true
+      "preset": "tag_string_autocomplete",
+      "validators": "list_to_tag_string",
+      "display_snippet": "tag_string.html",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/dataset/autocomplete?dataset_type=protocol&incomplete=?",
+        "class": ""
+      }
     },
     {
       "field_name": "bibliography",

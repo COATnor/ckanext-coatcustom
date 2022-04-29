@@ -6,6 +6,7 @@ import ckanext.coat.logic.action.update
 import ckanext.coatcustom.logic.action.update
 import ckanext.coatcustom.helpers as helpers
 import ckanext.coatcustom.validators as validators
+from ckanext.coatcustom.views import scheming
 from ckanext.doi.interfaces import IDoi
 from ckanext.coat.helpers import extras_dict
 import json
@@ -14,6 +15,7 @@ import requests
 CKAN_SCHEMA = 'http://solr:8983/solr/ckan/schema'
 
 class CoatcustomPlugin(plugins.SingletonPlugin):
+    plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IActions)
@@ -21,6 +23,10 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
     plugins.implements(IDoi, inherit=True)
+
+    # IBlueprint
+    def get_blueprint(self):
+        return [scheming]
 
     # IConfigurer
 
