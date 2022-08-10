@@ -51,7 +51,7 @@ def list_to_tag_string(value):
 
 def tag_string_to_list(value):
     if type(value) in (list, set):
-        return value
+        return value.split(',')
     else:
         return [value]
 
@@ -100,7 +100,7 @@ def merge_from_datasets(key, data, errors, context, sep=","):
             part = part.strip()
             if part:
                 values.add(part)
-    data[key] = json.dumps(list(values))
+    data[key] = sep.join(values)
 
 def merge_tags_from_datasets(key, data, errors, context):
     # Extract tags from datasets

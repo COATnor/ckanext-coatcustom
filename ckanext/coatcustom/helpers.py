@@ -185,7 +185,7 @@ def scheming_locations_choices(field):
 
 def scheming_locations_tags(field=None):
     for location in locations:
-        yield location['value']
+        yield location['label']
 
 
 with open(os.path.join(file_dir, 'categories.json')) as categories_file:
