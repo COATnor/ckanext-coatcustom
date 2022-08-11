@@ -320,6 +320,11 @@
         "lon": 30.0043184621013
     },
     {
+        "label": "Varanger - Varjjatnjarga - Komagdalen - Royskattfjellet",
+        "lat": 70.3353523330029,
+        "lon": 30.0043184621013
+    },
+    {
         "label": "Varanger - Varjjatnjarga - Vestre Jakobselv",
         "lat": 70.2914128728099,
         "lon": 29.0756827124289
@@ -441,6 +446,11 @@
     },
     {
         "label": "Troms - Vengsoy",
+        "lat": 69.8347,
+        "lon": 18.5737
+    },
+    {
+        "label": "Finnmarksvidda",
         "lat": 69.8347,
         "lon": 18.5737
     }
