@@ -68,6 +68,8 @@ def citation_autocomplete(key, data, errors, context):
     if isinstance(authors, str):
         authors = [authors] if authors else []
     authors = set(authors)
+    fullnames = helpers.authors_fullnames()
+    authors = [fullnames[author] for author in authors]
     if authors:
         data[key] += ', '.join(authors) + " et al., "
     data[key] += str(pkg.metadata_modified.year) + ", " + \

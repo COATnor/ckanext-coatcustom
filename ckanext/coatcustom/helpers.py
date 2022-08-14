@@ -98,6 +98,13 @@ def scheming_author_choice(field):
         }
 
 
+def authors_fullnames():
+    fullnames = {}
+    for choice in scheming_author_choice(None):
+        fullnames[choice["value"]] = choice["label"]
+    return fullnames
+
+
 def scheming_author_choice_required(field):
     yield {
         'value': '',
