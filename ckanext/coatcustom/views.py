@@ -1,13 +1,25 @@
 from flask import Blueprint, jsonify
 import ckan.plugins.toolkit as toolkit
 from . import helpers
+import re
 
 scheming = Blueprint("scheming", __name__)
+
+# https://solr.apache.org/guide/solr/latest/query-guide/standard-query-parser.html#escaping-special-characters
+special_characters = '+ - && || ! ( ) { } [ ] ^ " ~ * ? : /'.split()
+
+
+def escape(text):
+    for character in special_characters:
+        text = text.replace(character, '\\'+character)
+    return text
+
 
 @scheming.route('/scheming/api/util/<field>/autocomplete')
 def autocomplete(field):
     tags = []
     value = toolkit.request.params.get('incomplete')
+    value = escape(value)
     if field == "dataset":
         dataset_type = toolkit.request.params.get('dataset_type')
         context = {
