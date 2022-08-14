@@ -3,6 +3,7 @@ import ckan.plugins.toolkit as toolkit
 from ckan.common import config
 from ckan.lib.navl import validators as ckan_validators
 from ckanext.scheming.validation import scheming_load_json
+from ckan.logic import NotFound
 
 import json
 
@@ -81,7 +82,12 @@ def _associated_datasets(data):
     datasets = data.get(('datasets',), '')
     if datasets:
         for name in datasets.split(','):
-            yield toolkit.get_action('ckan_package_show')(context, {'id': name})
+            try:
+                pkg = toolkit.get_action('ckan_package_show')(context, {'id': name})
+            except NotFound:
+                pass
+            else:
+                yield pkg
 
 def datasets_visibility(key, data, errors, context):
     if not str_to_bool(data[key]):
