@@ -41,6 +41,8 @@ def autocomplete(field):
         tags = helpers.scheming_locations_tags(field)
     elif field == "scientific_name":
         tags = helpers.scheming_scientific_name_tags(field)
+    elif field == "coat_tags":
+        tags = helpers.scheming_coat_tags(field)
     else:
         tags = []
     results = []

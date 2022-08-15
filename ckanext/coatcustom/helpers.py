@@ -178,8 +178,9 @@ with open(os.path.join(file_dir, 'tags.json')) as tags_file:
     tags = json.load(tags_file)
 
 
-def scheming_tags_choices(field):
-    return tags
+def scheming_coat_tags(field=None):
+    for tag in tags:
+        yield tag['value']
 
 
 with open(os.path.join(file_dir, 'locations.json')) as locations_file:

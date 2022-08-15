@@ -56,9 +56,14 @@
     {
       "field_name": "tag_string",
       "label": "tags (keywords)",
-      "preset": "tag_string_autocomplete_custom",
-      "choices_helper": "scheming_tags_choices",
-      "sorted_choices": true,
+      "preset": "tag_string_autocomplete",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/coat_tags/autocomplete?incomplete=?",
+        "class": ""
+      },
       "form_placeholder": "choose one or more keywords from the COAT list",
       "help_text": "Select one or more appropriate tags; start typing to search."
     },
