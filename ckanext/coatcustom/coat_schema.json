@@ -166,7 +166,7 @@
       "label": "Geographic Location",
       "help_text": "Data collection location. Choose the most detailed possible. You can also choose several.",
       "preset": "tag_string_autocomplete",
-      "validators": "select_parent_locations list_to_tag_string",
+      "validators": "ignore_missing select_parent_locations list_to_tag_string",
       "display_snippet": "tag_string.html",
       "form_attrs": {
         "data-module": "autocomplete",
@@ -182,7 +182,7 @@
       "label": "Scientific Name",
       "form_placeholder": "Scientific name - Taxonomy",
       "preset": "tag_string_autocomplete",
-      "validators": "list_to_tag_string",
+      "validators": "ignore_missing list_to_tag_string",
       "display_snippet": "tag_string.html",
       "form_attrs": {
         "data-module": "autocomplete",
@@ -210,7 +210,7 @@
       "field_name": "protocol",
       "label": "Associated study protocol",
       "preset": "tag_string_autocomplete",
-      "validators": "list_to_tag_string",
+      "validators": "ignore_missing list_to_tag_string",
       "display_snippet": "tag_string.html",
       "form_attrs": {
         "data-module": "autocomplete",
