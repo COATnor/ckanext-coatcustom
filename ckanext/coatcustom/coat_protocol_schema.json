@@ -97,8 +97,14 @@
     {
       "field_name": "associated_parties",
       "label": "Associated Parties",
-      "preset": "multiple_checkbox",
-      "choices_helper": "scheming_publisher_choices",
+      "preset": "tag_string_autocomplete",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/associated_parties/autocomplete?incomplete=?",
+        "class": ""
+      },
       "form_placeholder": "eg. list of cooperating institutions, academy, enterprises... ",
       "help_text": "List of other related institutions or organizations"
     },
