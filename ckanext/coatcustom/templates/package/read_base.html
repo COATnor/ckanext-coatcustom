@@ -46,7 +46,7 @@
     {% if h.coat_is_under_embargo(pkg) %}
       <span class="label label-warning">Dataset under embargo</span>
     {% else %}
-      {% link_for 'Download '+pkg.name+'.zip', named_route='coat.zip', uid=pkg.name, class_="label label-primary" %}
+      <a class="label label-primary" href="/dataset/{{ pkg.name }}/zip">Download {{ pkg.name }}.zip</a>
     {% endif %}
     {# ckanext.coat customization - end #}
     </span>
