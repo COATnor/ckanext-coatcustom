@@ -44,7 +44,7 @@
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "true",
-        "data-module-createtags": "true",
+        "data-module-createtags": "false",
         "data-module-source": "/scheming/api/util/dataset/autocomplete?dataset_type=dataset&incomplete=?",
         "class": ""
       }
