@@ -200,6 +200,11 @@
         "lon": 27.4692352873563
     },
     {
+        "label": "Varanger - Siskkit Corgas Ja Lagesduottar - Gaissane",
+        "lat": 70.4223373563218,
+        "lon": 27.4692352873563
+    },
+    {
         "label": "Varanger - Olggut Corgas Oarje Deatnu",
         "lat": 70.907408,
         "lon": 27.85705
@@ -450,7 +455,7 @@
         "lon": 18.5737
     },
     {
-        "label": "Finnmarksvidda",
+        "label": "Finnmark",
         "lat": 69.8347,
         "lon": 18.5737
     }
