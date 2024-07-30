@@ -66,11 +66,17 @@ def citation_autocomplete(key, data, errors, context):
         context, {'id': pkg.id})
     url = config['ckan.site_url'] + "/dataset/" + pkg.name
     authors = scheming_load_json(pkg.author, None)
-    if isinstance(authors, str):
-        authors = [authors] if authors else []
+    emails = scheming_load_json(pkg.author_email, None)
+    if isinstance(authors, str) and isinstance(emails, str):
+        authors = [(emails, authors)] if authors else []
     authors = set(authors)
     fullnames = helpers.authors_fullnames()
-    authors = [fullnames[author] for author in authors]
+    authors = [
+        fullnames[email] 
+            if email in fullnames and ('@' not in fullnames[email]) and fullnames[email]
+            else author 
+        for email, author in authors
+    ]
     if authors:
         data[key] += ', '.join(authors) + " et al., "
     data[key] += str(pkg.metadata_modified.year) + ", " + \
