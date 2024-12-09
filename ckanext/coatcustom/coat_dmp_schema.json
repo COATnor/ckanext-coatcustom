@@ -40,6 +40,24 @@
       "help_text": "Public datasets are immutable and they are available to everybody in case embargo is not set or is expired (otherwise just medatada are shown). Private dataset are available to members and editors of the module only."
     },
     {
+      "field_name": "state",
+      "required": true,
+      "validators": "required_custom",
+      "label": "State",
+      "help_text": "Select the current state of the dataset. 'Active' indicates the dataset is finalized and publicly accessible (depending on visibility settings). 'Draft' indicates the dataset is still being prepared and not ready for publication.",
+      "preset": "select",
+      "choices": [
+        {
+          "value": "active",
+          "label": "Active"
+        },
+        {
+          "value": "draft",
+          "label": "Draft"
+        }
+      ]
+    },
+    {
       "field_name": "notes",
       "required": true,
       "validators": "required_custom",
