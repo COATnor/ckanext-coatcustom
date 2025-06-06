@@ -4,3 +4,17 @@
   {{ super() }}
   {% asset 'coatcustom/coatcustom' %}
 {% endblock %}
+
+{% block head_extras %}
+  {{ super() }}
+  <script
+    defer
+    data-domain="data.coat.no"
+    src="https://plausible.io/js/script.file-downloads.js"
+  ></script>
+  <script>
+    window.plausible = window.plausible || function () {
+      (window.plausible.q = window.plausible.q || []).push(arguments);
+    };
+  </script>
+{% endblock %}
