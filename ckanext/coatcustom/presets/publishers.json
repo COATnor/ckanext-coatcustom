@@ -16,6 +16,10 @@
     "label": "NMBU - Norwegian University of Life Sciences"
   },
   {
+    "value": "NIBIO",
+    "label": "NIBIO - Norwegian Institute of Bioeconomy Research"
+  },
+  {
     "value": "MET",
     "label": "MET - Norwegian Meteorological institute"
   },
