@@ -32,17 +32,27 @@
 ckanext-coatcustom
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
+Enhancement layer for COAT (Climate-ecological Observatory for Arctic Tundra) that extends ``ckanext-coat``
+with spatial data, citations, and domain-specific search.
 
+This extension enables:
+
+* **Geographic search** - Find datasets by location and spatial extent
+* **Dataset citation** - Generate DOIs and Datacite metadata for published datasets
+* **Domain-specific discovery** - Search by location, scientific name, and topic category
+* **Metadata interoperability** - Export COAT-compliant DCAT metadata
+
+**Important:** This extension requires ``ckanext-coat`` and cannot be used independently.
 
 ------------
 Requirements
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
+This extension is compatible with CKAN 2.9+ and requires:
+
+* ``ckanext-coat`` - Base COAT extension
+* ``ckanext-doi`` - DOI/Datacite integration
+* ``ckanext-spatial`` - Spatial metadata support
 
 
 ------------
