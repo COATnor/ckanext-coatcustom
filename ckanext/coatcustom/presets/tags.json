@@ -167,6 +167,10 @@
         "label": "Pellet counts"
     },
     {
+        "value": "pine_forest",
+        "label": "Pine forest"
+    },
+    {
         "value": "point_intercept",
         "label": "Point intercept"
     },
