@@ -100,9 +100,32 @@ def scheming_author_choice(field):
 
 def authors_fullnames():
     fullnames = {}
-    for choice in scheming_author_choice(None):
-        fullnames[choice["value"]] = choice["label"]
+    for user in model.user.User.all():
+        if user.name in ('default',):
+            continue
+        if user.fullname:
+            fullnames[user.name] = user.fullname
+            if user.email:
+                fullnames[user.email] = user.fullname
     return fullnames
+
+
+def coatcustom_get_authors_display(pkg_dict):
+    """Get display name for author (username or email)."""
+    author = pkg_dict.get("author")
+    if not author:
+        return None
+
+    fullnames = authors_fullnames()
+    fullname = fullnames.get(author)
+    if fullname:
+        return fullname + " et al."
+
+    # Fallback: if no fullname found and it's not an email, use the username
+    if "@" not in author:
+        return author + " et al."
+
+    return None
 
 
 def scheming_author_choice_required(field):

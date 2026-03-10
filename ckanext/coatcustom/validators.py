@@ -1,11 +1,12 @@
-import ckanext.coatcustom.helpers as helpers
+import json
+
 import ckan.plugins.toolkit as toolkit
 from ckan.common import config
 from ckan.lib.navl import validators as ckan_validators
-from ckanext.scheming.validation import scheming_load_json
 from ckan.logic import NotFound
 
-import json
+import ckanext.coatcustom.helpers as helpers
+
 
 def required_custom(key, data, errors, context):
     extras = data.get(('__extras',), {})
@@ -62,23 +63,12 @@ def citation_autocomplete(key, data, errors, context):
     pkg = context.get('package')
     if not pkg:
         return
-    pkg_dict = toolkit.get_action('package_show')(
-        context, {'id': pkg.id})
+    pkg_dict = toolkit.get_action('package_show')(context, {'id': pkg.id})
     url = config['ckan.site_url'] + "/dataset/" + pkg.name
-    authors = scheming_load_json(pkg.author, None)
-    emails = scheming_load_json(pkg.author_email, None)
-    if isinstance(authors, str) and isinstance(emails, str):
-        authors = [(emails, authors)] if authors else []
-    authors = set(authors)
-    fullnames = helpers.authors_fullnames()
-    authors = [
-        fullnames[email] 
-            if email in fullnames and ('@' not in fullnames[email]) and fullnames[email]
-            else author 
-        for email, author in authors
-    ]
+
+    authors = helpers.coatcustom_get_authors_display(pkg_dict)
     if authors:
-        data[key] += ', '.join(authors) + " et al., "
+        data[key] += authors + ", "
     data[key] += str(pkg.metadata_modified.year) + ", " + \
                  pkg.name + ": COAT project data. " + \
                  "Available online: " + url
