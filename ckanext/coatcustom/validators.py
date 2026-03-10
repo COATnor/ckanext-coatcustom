@@ -85,13 +85,6 @@ def _associated_datasets(data):
             else:
                 yield pkg
 
-def datasets_visibility(key, data, errors, context):
-    if not str_to_bool(data[key]):
-        for package in _associated_datasets(data):
-            if package['private']:
-                raise toolkit.Invalid('Cannot set a state variable as public '
-                    'if one or more associated datasets are private')
-
 def merge_from_datasets(key, data, errors, context, sep=","):
     values = set()
     for package in _associated_datasets(data):

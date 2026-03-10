@@ -53,7 +53,7 @@
       "field_name": "private",
       "label": "Visibility",
       "required": true,
-      "validators": "datasets_visibility bool_to_str required_custom str_to_bool",
+      "validators": "bool_to_str required_custom str_to_bool",
       "create_validators": "bool_to_str required_custom str_to_bool private_on_creation",
       "edit_validators": "bool_to_str required_custom str_to_bool",
       "form_snippet": "visibility.html",
