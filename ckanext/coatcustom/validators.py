@@ -1,11 +1,8 @@
 import json
 
 import ckan.plugins.toolkit as toolkit
-from ckan.common import config
 from ckan.lib.navl import validators as ckan_validators
 from ckan.logic import NotFound
-
-import ckanext.coatcustom.helpers as helpers
 
 
 def required_custom(key, data, errors, context):
@@ -57,21 +54,6 @@ def tag_string_to_list(value):
     else:
         return [value]
 
-
-def citation_autocomplete(key, data, errors, context):
-    data[key] = ''
-    pkg = context.get('package')
-    if not pkg:
-        return
-    pkg_dict = toolkit.get_action('package_show')(context, {'id': pkg.id})
-    url = config['ckan.site_url'] + "/dataset/" + pkg.name
-
-    authors = helpers.coatcustom_get_authors_display(pkg_dict)
-    if authors:
-        data[key] += authors + ", "
-    data[key] += str(pkg.metadata_modified.year) + ", " + \
-                 pkg.name + ": COAT project data. " + \
-                 "Available online: " + url
 
 def _associated_datasets(data):
     context = {'ignore_auth': True}

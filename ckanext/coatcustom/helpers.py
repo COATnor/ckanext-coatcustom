@@ -111,21 +111,23 @@ def authors_fullnames():
 
 
 def coatcustom_get_authors_display(pkg_dict):
-    """Get display name for author (username or email)."""
+    """Resolve author usernames/emails to full display names.
+
+    Works for both datasets (single author) and state variables (comma-separated
+    list of authors merged from linked datasets).
+    Returns "First Author" for one author, "First Author et al." for multiple.
+    Returns None if no author can be resolved.
+    """
     author = pkg_dict.get("author")
     if not author:
         return None
 
     fullnames = authors_fullnames()
-    fullname = fullnames.get(author)
-    if fullname:
-        return fullname + " et al."
+    resolved = [fullnames.get(e, e) for e in author.split(",") if e]
 
-    # Fallback: if no fullname found and it's not an email, use the username
-    if "@" not in author:
-        return author + " et al."
-
-    return None
+    if not resolved:
+        return None
+    return resolved[0] + (" et al." if len(resolved) > 1 else "")
 
 
 def scheming_author_choice_required(field):

@@ -189,7 +189,7 @@
     {
       "field_name": "resource_citations",
       "label": "Resource Citation",
-      "validators": "citation_autocomplete",
+      "validators": "ignore_missing",
       "form_snippet": null
     },
     {

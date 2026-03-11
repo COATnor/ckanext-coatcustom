@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+from ckan.common import config
 import ckanext.coat.logic.action.create
 import ckanext.coatcustom.logic.action.create
 import ckanext.coat.logic.action.update
@@ -81,6 +82,22 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
                     "dest": [name+"s"],
                 }
             })
+
+    # IPackageController
+
+    _CITATION_TYPES = {"dataset", "state-variable", "protocol"}
+
+    def after_show(self, context, pkg_dict):
+        if pkg_dict.get("type") not in self._CITATION_TYPES:
+            return
+        url = config["ckan.site_url"] + "/dataset/" + pkg_dict["name"]
+        modified = pkg_dict.get("metadata_modified", "")
+        year = modified[:4] if modified else ""
+        authors = helpers.coatcustom_get_authors_display(pkg_dict)
+        pkg_dict["resource_citations"] = (
+            (authors + ", " if authors else "") +
+            f"{year}, {pkg_dict['name']}: COAT project data. Available online: {url}"
+        )
 
     # IValidators
 
