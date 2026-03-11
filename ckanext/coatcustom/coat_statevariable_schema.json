@@ -50,6 +50,21 @@
       }
     },
     {
+      "field_name": "external_datasets",
+      "label": "External datasets",
+      "repeating_label": "External dataset",
+      "repeating_subfields": [
+        {
+          "field_name": "url",
+          "label": "URL",
+          "validators": "ignore_missing unicode_safe",
+          "display_snippet": "link.html",
+          "form_placeholder": "https://example.com/dataset"
+        }
+      ],
+      "help_text": "URLs to external datasets not hosted on the COAT portal (e.g. MET Norway datasets)."
+    },
+    {
       "field_name": "private",
       "label": "Visibility",
       "required": true,
