@@ -44,15 +44,17 @@ def select_parent_locations(selected_values, sep=" - "):
 
 def list_to_tag_string(value):
     if type(value) in (list, set):
-        return ','.join(value)
+        return ','.join(v for v in value if v)
     else:
         return value
 
 def tag_string_to_list(value):
     if type(value) in (list, set):
-        return value.split(',')
+        return [v for v in value if v]
+    elif isinstance(value, str):
+        return [v.strip() for v in value.split(',') if v.strip()]
     else:
-        return [value]
+        return []
 
 
 def _associated_datasets(data):
