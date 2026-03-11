@@ -1,17 +1,19 @@
+import json
+
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+import requests
 from ckan.common import config
+
 import ckanext.coat.logic.action.create
-import ckanext.coatcustom.logic.action.create
 import ckanext.coat.logic.action.update
-import ckanext.coatcustom.logic.action.update
 import ckanext.coatcustom.helpers as helpers
+import ckanext.coatcustom.logic.action.create
+import ckanext.coatcustom.logic.action.update
 import ckanext.coatcustom.validators as validators
+from ckanext.coat.helpers import extras_dict
 from ckanext.coatcustom.views import scheming
 from ckanext.doi.interfaces import IDoi
-from ckanext.coat.helpers import extras_dict
-import json
-import requests
 
 CKAN_SCHEMA = 'http://solr:8983/solr/ckan/schema'
 
@@ -87,7 +89,7 @@ class CoatcustomPlugin(plugins.SingletonPlugin):
 
     _CITATION_TYPES = {"dataset", "state-variable", "protocol"}
 
-    def after_show(self, context, pkg_dict):
+    def after_dataset_show(self, context, pkg_dict):
         if pkg_dict.get("type") not in self._CITATION_TYPES:
             return
         url = config["ckan.site_url"] + "/dataset/" + pkg_dict["name"]

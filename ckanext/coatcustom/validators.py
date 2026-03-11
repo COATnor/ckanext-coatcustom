@@ -69,7 +69,8 @@ def _associated_datasets(data):
             else:
                 yield pkg
 
-def merge_from_datasets(key, data, errors, context, sep=","):
+def merge_from_datasets(key, data, errors, context):
+    sep = ","
     values = set()
     for package in _associated_datasets(data):
         parts = package.get(key[0])

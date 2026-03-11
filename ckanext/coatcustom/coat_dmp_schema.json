@@ -19,7 +19,7 @@
     {
       "field_name": "version",
       "label": "Version",
-      "validators": "ignore_missing unicode package_version_validator",
+      "validators": "ignore_missing unicode_safe package_version_validator",
       "form_snippet": null
     },
     {
@@ -115,7 +115,7 @@
     {
       "field_name": "downloads",
       "label": "Downloads",
-      "validators": "ignore_missing unicode",
+      "validators": "ignore_missing unicode_safe",
       "form_snippet": null
     }
   ],
@@ -147,7 +147,7 @@
     {
       "field_name": "downloads",
       "label": "Downloads",
-      "validators": "ignore_missing unicode",
+      "validators": "ignore_missing unicode_safe",
       "form_snippet": null
     }
   ]

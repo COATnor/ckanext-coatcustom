@@ -7,7 +7,7 @@
       "field_name": "title",
       "label": "Name",
       "required": true,
-      "validators": "scheming_required unicode",
+      "validators": "scheming_required unicode_safe",
       "form_snippet": "large_text.html",
       "form_attrs": {"data-module": "slug-preview-target"},
       "form_placeholder": "My Module name"
@@ -15,7 +15,7 @@
     {
       "field_name": "name",
       "label": "URL",
-      "validators": "not_empty unicode name_validator group_name_validator",
+      "validators": "not_empty unicode_safe name_validator group_name_validator",
       "form_snippet": "slug.html",
       "form_placeholder": "my-organization"
     },
@@ -38,7 +38,7 @@
     {
       "field_name": "image_url",
       "label": "Image URL",
-      "validators": "unicode remove_whitespace",
+      "validators": "unicode_safe remove_whitespace",
       "form_snippet": "upload.html",
       "upload_field": "image_upload",
       "upload_clear": "clear_upload",
