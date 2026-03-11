@@ -214,9 +214,20 @@
     {
       "field_name": "scientific_name",
       "label": "Scientific Name",
-      "form_snippet": null,
       "display_snippet": "tag_string.html",
-      "validators": "merge_from_datasets"
+      "validators": "ignore_missing",
+      "create_validators": "merge_from_datasets",
+      "edit_validators": "ignore_missing list_to_tag_string",
+      "preset": "tag_string_autocomplete",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-createtags": "false",
+        "data-module-source": "/scheming/api/util/scientific_name/autocomplete?incomplete=?",
+        "class": ""
+      },
+      "sorted_choices": true,
+      "help_text": "Scientific name(s) covered by this state variable. Auto-filled from linked datasets; can be narrowed or extended manually."
     },
     {
       "field_name": "resource_citations",
